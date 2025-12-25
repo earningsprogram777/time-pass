@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiServices Connect - Your One-Stop Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E8B57;
+            --secondary: #FF6B35;
+            --accent: #4CC9F0;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --success: #28A745;
+            --warning: #FFC107;
+            --danger: #DC3545;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-code {
+            display: inline-block;
+            background: var(--light);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Join Form */
+        .join-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 40px;
+            margin: 4rem 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.3);
+        }
+
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 2rem auto 0;
+            width: 200px;
+        }
+
+        .submit-btn:hover {
+            background: #FF8535;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Business Model */
+        .model-section {
+            padding: 4rem 0;
+        }
+
+        .model-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Earnings Calculator */
+        .calculator {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .calculator input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .calculator button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919985943961?text=Hi%20I'm%20interested%20in%20joining%20MultiServices%20Connect"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-network-wired"></i>
+                    Multi<span>Connect</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#join">Join Us</a></li>
+                    <li><a href="#model">Business Model</a></li>
+                    <li><a href="#calculator">Earnings</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Your Gateway to Unlimited Opportunities</h1>
+            <p>Connect, Earn, and Grow with India's Largest Multi-Service Platform. From Farmhouses to Matrimony, Cars
+                to Careers - We Connect Everything!</p>
+            <a href="#join" class="cta-button">Start Earning Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions for every need. Use codes to access specific services quickly.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Farm House</h3>
+                    <p>Premium farmhouse bookings for events, vacations, and getaways</p>
+                    <div class="service-code">FH - Farm House</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Car Rentals</h3>
+                    <p>Daily, weekly, and monthly car rentals at best prices</p>
+                    <div class="service-code">CR - Car Rentals</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Property Sales</h3>
+                    <p>Buying and selling properties with expert guidance</p>
+                    <div class="service-code">PS - Property Sales</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Matrimony</h3>
+                    <p>Trusted matrimonial services for perfect matches</p>
+                    <div class="service-code">MRG - Matrimony</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Medical Consultation</h3>
+                    <p>Online doctor consultation and medical services</p>
+                    <div class="service-code">DOC - Doctor</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education Services</h3>
+                    <p>College admissions, tuitions, and online courses</p>
+                    <div class="service-code">EDU - Education</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Form Section -->
+    <section class="join-section" id="join">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Team</h2>
+                <p>Fill this form and we'll contact you with WhatsApp for onboarding</p>
+            </div>
+
+            <div class="form-container">
+                <form id="joinForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" name="age" required min="18" max="60" placeholder="Your age">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact">WhatsApp Number *</label>
+                            <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}"
+                                placeholder="10-digit WhatsApp number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location">City & State *</label>
+                            <input type="text" id="location" name="location" required
+                                placeholder="Your current location">
+                        </div>
+                        <div class="form-group">
+                            <label for="qualification">Highest Qualification *</label>
+                            <select id="qualification" name="qualification" required>
+                                <option value="">Select Qualification</option>
+                                <option value="10th">10th Pass</option>
+                                <option value="12th">12th Pass</option>
+                                <option value="graduate">Graduate</option>
+                                <option value="postgraduate">Post Graduate</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience">Years of Experience</label>
+                            <select id="experience" name="experience">
+                                <option value="0">Fresher</option>
+                                <option value="1">1 Year</option>
+                                <option value="2">2 Years</option>
+                                <option value="3">3 Years</option>
+                                <option value="4">4 Years</option>
+                                <option value="5+">5+ Years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Service Interest *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select Preferred Service</option>
+                                <option value="FH">Farm House Bookings</option>
+                                <option value="CR">Car Rentals</option>
+                                <option value="PR">Property Rentals</option>
+                                <option value="MRG">Matrimony Services</option>
+                                <option value="JOB">Job Placements</option>
+                                <option value="SALES">Sales & Marketing</option>
+                                <option value="ALL">All Services</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Why do you want to join us? *</label>
+                        <textarea id="message" name="message" rows="3" required
+                            placeholder="Briefly describe your interest and goals..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reference">Reference Code (if any)</label>
+                        <input type="text" id="reference" name="reference" placeholder="Referral code">
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span id="btnText">Submit & WhatsApp Us</span>
+                        <i class="fas fa-spinner fa-spin" id="spinner" style="display: none;"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section class="model-section" id="model">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Business Model</h2>
+                <p>Simple, transparent, and profitable partnership system</p>
+            </div>
+
+            <div class="model-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Registration</h3>
+                    <p>Join with ₹150 one-time fee. Complete basic training.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Start Earning</h3>
+                    <p>Basic salary ₹5,000/month + 3 level earnings(L1=100,L2=50,L3=50) + commissions on bookings</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Growth Path</h3>
+                    <p>Increase earnings with more bookings and referrals</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Become Leader</h3>
+                    <p>Build your team and earn from their success</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Calculator -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Earnings Calculator</h2>
+                <p>See how much you can earn with us</p>
+            </div>
+
+            <div class="calculator">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Monthly Bookings</label>
+                        <input type="range" id="bookingsRange" min="0" max="50" value="20" oninput="updateBookings()">
+                        <div id="bookingsValue">20 Bookings</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Team Members Referred</label>
+                        <input type="range" id="teamRange" min="0" max="20" value="5" oninput="updateTeam()">
+                        <div id="teamValue">5 Members</div>
+                    </div>
+                </div>
+
+                <button onclick="calculateEarnings()">Calculate Earnings</button>
+
+                <div class="result" id="earningsResult">
+                    Your Estimated Monthly Earnings: ₹0
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#join">Join Us</a></li>
+                        <li><a href="#model">Business Model</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 9985943961</p>
+                    <p><i class="fas fa-envelope"></i> earningsprogram777@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
+                </div>
+
+
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/__.time__pass.__" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919985943961" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:earningsprogram777@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 MultiServices Connect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form Submission
+        document.getElementById('joinForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading spinner
+            document.getElementById('btnText').style.display = 'none';
+            document.getElementById('spinner').style.display = 'inline-block';
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                contact: document.getElementById('contact').value,
+                email: document.getElementById('email').value,
+                location: document.getElementById('location').value,
+                qualification: document.getElementById('qualification').value,
+                experience: document.getElementById('experience').value,
+                interest: document.getElementById('interest').value,
+                message: document.getElementById('message').value,
+                reference: document.getElementById('reference').value,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Create WhatsApp message
+            const whatsappMessage = encodeURIComponent(
+                `*New Partner Registration*\n\n` +
+                `👤 *Name:* ${formData.name}\n` +
+                `🎂 *Age:* ${formData.age}\n` +
+                `📱 *Contact:* ${formData.contact}\n` +
+                `📧 *Email:* ${formData.email || 'Not provided'}\n` +
+                `📍 *Location:* ${formData.location}\n` +
+                `🎓 *Qualification:* ${formData.qualification}\n` +
+                `💼 *Experience:* ${formData.exexperience} years\n` +
+                `🎯 *Interest:* ${formData.interest}\n` +
+                `📝 *Message:* ${formData.message}\n` +
+                `🔗 *Reference:* ${formData.reference || 'None'}\n` +
+                `🕒 *Submitted at:* ${formData.timestamp}\n\n` +
+                `_This form was submitted via MultiConnect Website_`
+            );
+
+            // Your WhatsApp number (replace with actual number)
+            const whatsappNumber = "919985943961";
+
+            // Open WhatsApp with pre-filled message
+            setTimeout(() => {
+                window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+
+                // Reset form and button
+                document.getElementById('joinForm').reset();
+                document.getElementById('btnText').style.display = 'inline';
+                document.getElementById('spinner').style.display = 'none';
+
+                // Show success message
+                alert('Thank you! Opening WhatsApp to send your details. Please complete the process by sending the message.');
+            }, 1500);
+        });
+
+        // Earnings Calculator Functions
+        function updateBookings() {
+            const value = document.getElementById('bookingsRange').value;
+            document.getElementById('bookingsValue').textContent = `${value} Bookings`;
+        }
+
+        function updateTeam() {
+            const value = document.getElementById('teamRange').value;
+            document.getElementById('teamValue').textContent = `${value} Members`;
+        }
+
+        function calculateEarnings() {
+            const bookings = parseInt(document.getElementById('bookingsRange').value);
+            const teamMembers = parseInt(document.getElementById('teamRange').value);
+
+            // Base salary
+            let baseSalary = 5000;
+
+            // Commission calculation (simplified)
+            let commission = 0;
+            if (bookings < 5) commission = bookings * 700;
+            else if (bookings >= 5 && bookings < 10) commission = bookings * 800;
+            else if (bookings <= 20) commission = bookings * 1000;
+            else commission = 1350 + bookings * 1100;
+
+            // Referral bonus
+            const referralBonus = teamMembers * 200;
+
+            // Total earnings
+            const totalEarnings = baseSalary + commission + referralBonus;
+
+            // Display result
+            document.getElementById('earningsResult').innerHTML = `
+                <h3>Your Estimated Monthly Earnings: ₹${totalEarnings.toLocaleString()}</h3>
+                <p>📊 Breakdown:</p>
+                <p>• Base Salary: ₹${baseSalary}</p>
+                <p>• Booking Commission: ₹${commission}</p>
+                <p>• Referral Bonus: ₹${referralBonus}</p>
+                <p>• Total: ₹${totalEarnings}</p>
+            `;
+        }
+
+        // Initialize calculator
+        updateBookings();
+        updateTeam();
+        calculateEarnings();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Form validation
+        document.getElementById('contact').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 10);
+        });
+    </script>
+</body>
+
+</html>
