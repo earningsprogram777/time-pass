@@ -220,6 +220,131 @@
             margin-top: 10px;
         }
 
+        /* Payment Section */
+        .payment-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 40px;
+            margin: 4rem 0;
+            color: white;
+        }
+
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .payment-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-step {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .payment-step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .payment-step-number {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .upi-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+
+        .upi-id-display {
+            font-size: 2rem;
+            font-family: monospace;
+            background: var(--light);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: var(--dark);
+            letter-spacing: 1px;
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .upi-id-display i {
+            color: var(--primary);
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            background: #26794A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn.secondary {
+            background: var(--secondary);
+        }
+
+        .copy-btn.secondary:hover {
+            background: #E55A2B;
+        }
+
+        .payment-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .payment-note i {
+            color: var(--warning);
+            margin-right: 10px;
+        }
+
         /* Join Form */
         .join-section {
             padding: 4rem 0;
@@ -643,6 +768,15 @@
                 font-size: 2rem;
                 padding: 8px 20px;
             }
+
+            .upi-id-display {
+                font-size: 1.5rem;
+                padding: 12px 20px;
+            }
+
+            .payment-steps {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -668,6 +802,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#payment">Payment</a></li>
                     <li><a href="#join">Join Us</a></li>
                     <li><a href="#referral">Referral Plan</a></li>
                     <li><a href="#model">Business Model</a></li>
@@ -684,7 +819,7 @@
             <h1>Your Gateway to Unlimited Opportunities</h1>
             <p>Connect, Earn, and Grow with India's Largest Multi-Service Platform. From Farmhouses to Matrimony, Cars
                 to Careers - We Connect Everything!</p>
-            <a href="#join" class="cta-button">Start Earning Today</a>
+            <a href="#payment" class="cta-button">Pay Registration Fee</a>
         </div>
     </section>
 
@@ -736,12 +871,72 @@
         </div>
     </section>
 
+    <!-- Payment Section -->
+    <section class="payment-section" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration Payment</h2>
+                <p>Pay the one-time registration fee of ₹150 to get started</p>
+            </div>
+
+            <div class="payment-container">
+                <div class="payment-steps">
+                    <div class="payment-step">
+                        <div class="payment-step-number">1</div>
+                        <h3>Copy UPI ID</h3>
+                        <p>Copy our UPI ID using the button below</p>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">2</div>
+                        <h3>Make Payment</h3>
+                        <p>Open any UPI app and pay ₹150</p>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">3</div>
+                        <h3>Save Screenshot</h3>
+                        <p>Take screenshot of payment confirmation</p>
+                    </div>
+                    <div class="payment-step">
+                        <div class="payment-step-number">4</div>
+                        <h3>Fill Form</h3>
+                        <p>Complete registration form with payment details</p>
+                    </div>
+                </div>
+
+                <div class="upi-container">
+                    <h3><i class="fas fa-university"></i> UPI Payment Details</h3>
+                    <p>Use this UPI ID to pay ₹150 registration fee</p>
+
+                    <div class="upi-id-display">
+                        <i class="fas fa-qrcode"></i>
+                        <span id="upiId">earning777@ptaxis</span>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <button class="copy-btn" onclick="copyUpiId()">
+                            <i class="fas fa-copy"></i> Copy UPI ID
+                        </button>
+                        <button class="copy-btn secondary" onclick="copyPaymentMessage()">
+                            <i class="fas fa-whatsapp"></i> Copy Payment Message
+                        </button>
+                    </div>
+
+                    <div class="payment-note">
+                        <p><i class="fas fa-info-circle"></i> <strong>Important:</strong> After payment, please fill the
+                            registration form below and mention "Payment made via UPI - ₹150" in the message section
+                            along with transaction ID.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Join Form Section -->
     <section class="join-section" id="join">
         <div class="container">
             <div class="section-title">
-                <h2>Join Our Team</h2>
-                <p>Fill this form and we'll contact you with WhatsApp for onboarding</p>
+                <h2>Complete Registration</h2>
+                <p>Fill this form after payment. We'll contact you on WhatsApp for onboarding</p>
             </div>
 
             <div class="form-container">
@@ -815,6 +1010,12 @@
                                 <option value="ALL">All Services</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentDetails">Payment Details *</label>
+                        <textarea id="paymentDetails" name="paymentDetails" rows="2" required
+                            placeholder="Payment details: UPI Transaction ID, Amount (₹150), Date, Time"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -892,7 +1093,8 @@
                 <h3>Example Calculation:</h3>
                 <p>If you refer 5 people, and each of them refers 3 people, and each of those refers 2 people:</p>
                 <p><strong>Total Earnings:</strong> (5 × ₹100) + (15 × ₹50) + (30 × ₹50) = ₹500 + ₹750 + ₹1500 =
-                    <strong>₹2,750</strong></p>
+                    <strong>₹2,750</strong>
+                </p>
             </div>
         </div>
     </section>
@@ -991,6 +1193,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#payment">Payment</a></li>
                         <li><a href="#join">Join Us</a></li>
                         <li><a href="#referral">Referral Plan</a></li>
                         <li><a href="#model">Business Model</a></li>
@@ -1027,6 +1230,44 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
+        // Copy UPI ID function
+        function copyUpiId() {
+            const upiId = document.getElementById('upiId').textContent;
+            navigator.clipboard.writeText(upiId).then(() => {
+                const button = event.target.closest('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.style.background = 'var(--success)';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 2000);
+
+                alert('UPI ID copied to clipboard: ' + upiId);
+            });
+        }
+
+        // Copy Payment Message function
+        function copyPaymentMessage() {
+            const upiId = document.getElementById('upiId').textContent;
+            const message = `MultiConnect Registration Payment Details:\n\nUPI ID: ${upiId}\nAmount: ₹150\nPurpose: Registration Fee\n\nAfter payment, please fill the registration form at the website with transaction details.`;
+
+            navigator.clipboard.writeText(message).then(() => {
+                const button = event.target.closest('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.style.background = 'var(--success)';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 2000);
+
+                alert('Payment message copied to clipboard! You can now paste it in WhatsApp or any messaging app.');
+            });
+        }
+
         // Generate Referral Code
         function generateReferralCode() {
             const name = document.getElementById('name').value.trim();
@@ -1037,7 +1278,7 @@
                 const namePart = name.replace(/\s+/g, '').substring(0, 5).toUpperCase();
                 // Take last 5 digits of phone
                 const phonePart = contact.substring(Math.max(0, contact.length - 5));
-                
+
                 const referralCode = namePart + phonePart;
                 document.getElementById('generatedReferralCode').textContent = referralCode;
                 document.getElementById('referralCodeContainer').style.display = 'block';
@@ -1048,6 +1289,16 @@
         function copyReferralCode() {
             const code = document.getElementById('generatedReferralCode').textContent;
             navigator.clipboard.writeText(code).then(() => {
+                const button = event.target.closest('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.style.background = 'var(--success)';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 2000);
+
                 alert('Referral code copied to clipboard: ' + code);
             });
         }
@@ -1070,6 +1321,7 @@
                 qualification: document.getElementById('qualification').value,
                 experience: document.getElementById('experience').value,
                 interest: document.getElementById('interest').value,
+                paymentDetails: document.getElementById('paymentDetails').value,
                 message: document.getElementById('message').value,
                 reference: document.getElementById('reference').value,
                 referralCode: document.getElementById('generatedReferralCode').textContent,
@@ -1078,31 +1330,32 @@
 
             // Create WhatsApp message with improved formatting
             const whatsappMessage = encodeURIComponent(
-                `🌟 *NEW PARTNER REGISTRATION - MULTICONNECT* 🌟\n\n` +
+                `💰 *PAYMENT CONFIRMATION & REGISTRATION - MULTICONNECT* 💰\n\n` +
                 `📋 *PERSONAL DETAILS*\n` +
                 `• 👤 *Name:* ${formData.name}\n` +
                 `• 🎂 *Age:* ${formData.age} years\n` +
                 `• 📱 *WhatsApp:* ${formData.contact}\n` +
                 `• 📧 *Email:* ${formData.email || 'Not provided'}\n\n` +
-                
+
                 `📍 *LOCATION & BACKGROUND*\n` +
                 `• 🏙️ *Location:* ${formData.location}\n` +
                 `• 🎓 *Qualification:* ${formData.qualification}\n` +
                 `• 💼 *Experience:* ${formData.experience} years\n\n` +
-                
-                `🎯 *INTERESTS & GOALS*\n` +
-                `• 🔥 *Service Interest:* ${formData.interest}\n` +
+
+                `💳 *PAYMENT INFORMATION*\n` +
+                `• 💸 *Payment Details:* ${formData.paymentDetails}\n` +
+                `• 🎯 *Service Interest:* ${formData.interest}\n` +
                 `• 💬 *Message:* ${formData.message}\n\n` +
-                
+
                 `🔗 *REFERRAL INFORMATION*\n` +
                 `• 📍 *Reference Code:* ${formData.reference || 'None'}\n` +
                 `• 🆔 *Generated Referral Code:* ${formData.referralCode}\n\n` +
-                
-                `📅 *SUBMISSION DETAILS*\n` +
+
+                `📅 *REGISTRATION DETAILS*\n` +
                 `• 🕒 *Submitted at:* ${formData.timestamp}\n` +
                 `• 🌐 *Via:* MultiConnect Website\n\n` +
-                
-                `_Please process this registration and send onboarding details._`
+
+                `✅ *PAYMENT MADE - PLEASE PROCESS REGISTRATION*`
             );
 
             // WhatsApp number
@@ -1117,8 +1370,8 @@
                 document.getElementById('spinner').style.display = 'none';
 
                 // Show success message
-                alert('✅ Registration successful! Opening WhatsApp to send your details. Please complete the process by sending the message.');
-                
+                alert('✅ Registration submitted! Opening WhatsApp to send your details. Please complete the process by sending the message.');
+
                 // Keep form data for potential edit
                 // Don't reset form so user can edit if needed
             }, 1000);
@@ -1131,11 +1384,11 @@
         }
 
         function updateReferrals() {
-            document.getElementById('referralsL1Value').textContent = 
+            document.getElementById('referralsL1Value').textContent =
                 `${document.getElementById('referralsL1').value} Members`;
-            document.getElementById('referralsL2Value').textContent = 
+            document.getElementById('referralsL2Value').textContent =
                 `${document.getElementById('referralsL2').value} Members`;
-            document.getElementById('referralsL3Value').textContent = 
+            document.getElementById('referralsL3Value').textContent =
                 `${document.getElementById('referralsL3').value} Members`;
         }
 
@@ -1156,7 +1409,7 @@
             else commission = bookings * 1100;
 
             // Referral earnings (3-level system)
-            const referralEarnings = 
+            const referralEarnings =
                 (referralsL1 * 100) +  // Level 1: ₹100 each
                 (referralsL2 * 50) +   // Level 2: ₹50 each
                 (referralsL3 * 50);    // Level 3: ₹50 each
@@ -1220,7 +1473,7 @@
         });
 
         // Auto-generate referral code on page load if fields are pre-filled
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             generateReferralCode();
         });
     </script>
