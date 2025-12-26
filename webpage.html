@@ -290,6 +290,7 @@
             display: block;
             margin: 2rem auto 0;
             width: 200px;
+            position: relative;
         }
 
         .submit-btn:hover {
@@ -336,6 +337,57 @@
             font-size: 1.2rem;
         }
 
+        /* Referral Earnings Section */
+        .referral-section {
+            padding: 4rem 0;
+            background: var(--light);
+        }
+
+        .referral-levels {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .level-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .level-card.level-1 {
+            border-top: 5px solid var(--primary);
+        }
+
+        .level-card.level-2 {
+            border-top: 5px solid var(--accent);
+        }
+
+        .level-card.level-3 {
+            border-top: 5px solid var(--secondary);
+        }
+
+        .level-card.bonus {
+            border-top: 5px solid var(--warning);
+        }
+
+        .level-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .bonus-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--warning);
+            margin: 1rem 0;
+        }
+
         /* Earnings Calculator */
         .calculator {
             background: white;
@@ -345,11 +397,8 @@
             margin-top: 3rem;
         }
 
-        .calculator input {
+        .calculator input[type="range"] {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
             margin: 10px 0;
         }
 
@@ -357,20 +406,99 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 30px;
+            padding: 12px 30px;
             border-radius: 10px;
             cursor: pointer;
             margin-top: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .calculator button:hover {
+            background: #26794A;
+            transform: translateY(-2px);
         }
 
         .result {
             margin-top: 20px;
-            padding: 20px;
+            padding: 25px;
             background: var(--light);
             border-radius: 10px;
             font-size: 1.2rem;
             font-weight: bold;
             color: var(--dark);
+        }
+
+        .result h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Referral Code Display */
+        .referral-code-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+
+        .referral-code {
+            font-size: 2.5rem;
+            font-family: monospace;
+            background: var(--light);
+            padding: 10px 30px;
+            border-radius: 10px;
+            margin: 15px 0;
+            color: var(--dark);
+            letter-spacing: 2px;
+            border: 2px solid var(--primary);
+        }
+
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #3AB0D9;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1A5D3A 100%);
+            color: white;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
         }
 
         /* Footer */
@@ -468,6 +596,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .referral-levels {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -500,6 +634,15 @@
             .form-container {
                 padding: 2rem;
             }
+
+            .referral-levels {
+                grid-template-columns: 1fr;
+            }
+
+            .referral-code {
+                font-size: 2rem;
+                padding: 8px 20px;
+            }
         }
     </style>
 </head>
@@ -526,6 +669,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#join">Join Us</a></li>
+                    <li><a href="#referral">Referral Plan</a></li>
                     <li><a href="#model">Business Model</a></li>
                     <li><a href="#calculator">Earnings</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -605,7 +749,8 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name"
+                                oninput="generateReferralCode()">
                         </div>
                         <div class="form-group">
                             <label for="age">Age *</label>
@@ -617,7 +762,7 @@
                         <div class="form-group">
                             <label for="contact">WhatsApp Number *</label>
                             <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}"
-                                placeholder="10-digit WhatsApp number">
+                                placeholder="10-digit WhatsApp number" oninput="generateReferralCode()">
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
@@ -680,7 +825,20 @@
 
                     <div class="form-group">
                         <label for="reference">Reference Code (if any)</label>
-                        <input type="text" id="reference" name="reference" placeholder="Referral code">
+                        <input type="text" id="reference" name="reference" placeholder="Referral code from friend">
+                    </div>
+
+                    <!-- Auto-generated Referral Code Display -->
+                    <div class="referral-code-container" id="referralCodeContainer" style="display: none;">
+                        <h3>Your Unique Referral Code</h3>
+                        <p>Share this code with friends to earn extra!</p>
+                        <div class="referral-code" id="generatedReferralCode">CODE123</div>
+                        <button type="button" class="copy-btn" onclick="copyReferralCode()">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                            <i class="fas fa-info-circle"></i> This code is auto-generated based on your name and phone
+                        </p>
                     </div>
 
                     <button type="submit" class="submit-btn" id="submitBtn">
@@ -688,6 +846,53 @@
                         <i class="fas fa-spinner fa-spin" id="spinner" style="display: none;"></i>
                     </button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Earnings Section -->
+    <section class="referral-section" id="referral">
+        <div class="container">
+            <div class="section-title">
+                <h2>3-Level Referral Earnings</h2>
+                <p>Earn from your team's success with our transparent multi-level system</p>
+            </div>
+
+            <div class="referral-levels">
+                <div class="level-card level-1">
+                    <h3>Level 1</h3>
+                    <div class="level-amount">₹100</div>
+                    <p>Direct Referrals</p>
+                    <p>For every person you directly refer</p>
+                </div>
+
+                <div class="level-card level-2">
+                    <h3>Level 2</h3>
+                    <div class="level-amount">₹50</div>
+                    <p>Team's Referrals</p>
+                    <p>From your Level 1 team's referrals</p>
+                </div>
+
+                <div class="level-card level-3">
+                    <h3>Level 3</h3>
+                    <div class="level-amount">₹50</div>
+                    <p>Extended Network</p>
+                    <p>From your Level 2 team's referrals</p>
+                </div>
+
+                <div class="level-card bonus">
+                    <h3>Team Bonus</h3>
+                    <div class="bonus-amount">₹10,000</div>
+                    <p>Achievement Reward</p>
+                    <p>When your team reaches 100 members</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3>Example Calculation:</h3>
+                <p>If you refer 5 people, and each of them refers 3 people, and each of those refers 2 people:</p>
+                <p><strong>Total Earnings:</strong> (5 × ₹100) + (15 × ₹50) + (30 × ₹50) = ₹500 + ₹750 + ₹1500 =
+                    <strong>₹2,750</strong></p>
             </div>
         </div>
     </section>
@@ -741,16 +946,37 @@
                         <div id="bookingsValue">20 Bookings</div>
                     </div>
                     <div class="form-group">
-                        <label>Team Members Referred</label>
-                        <input type="range" id="teamRange" min="0" max="20" value="5" oninput="updateTeam()">
-                        <div id="teamValue">5 Members</div>
+                        <label>Direct Referrals (Level 1)</label>
+                        <input type="range" id="referralsL1" min="0" max="20" value="5" oninput="updateReferrals()">
+                        <div id="referralsL1Value">5 Members</div>
                     </div>
                 </div>
 
-                <button onclick="calculateEarnings()">Calculate Earnings</button>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Level 2 Team Size</label>
+                        <input type="range" id="referralsL2" min="0" max="50" value="15" oninput="updateReferrals()">
+                        <div id="referralsL2Value">15 Members</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Level 3 Team Size</label>
+                        <input type="range" id="referralsL3" min="0" max="100" value="30" oninput="updateReferrals()">
+                        <div id="referralsL3Value">30 Members</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button onclick="calculateEarnings()">Calculate Total Earnings</button>
+                </div>
 
                 <div class="result" id="earningsResult">
-                    Your Estimated Monthly Earnings: ₹0
+                    <h3>Your Estimated Monthly Earnings: ₹0</h3>
+                    <p>📊 Breakdown:</p>
+                    <p>• Base Salary: ₹0</p>
+                    <p>• Booking Commission: ₹0</p>
+                    <p>• Referral Earnings: ₹0</p>
+                    <p>• Team Bonus: ₹0</p>
+                    <p>• Total: ₹0</p>
                 </div>
             </div>
         </div>
@@ -766,6 +992,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#join">Join Us</a></li>
+                        <li><a href="#referral">Referral Plan</a></li>
                         <li><a href="#model">Business Model</a></li>
                     </ul>
                 </div>
@@ -776,7 +1003,6 @@
                     <p><i class="fas fa-envelope"></i> earningsprogram777@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
                 </div>
-
 
                 <div class="footer-section">
                     <h3>Follow Us</h3>
@@ -801,6 +1027,31 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
+        // Generate Referral Code
+        function generateReferralCode() {
+            const name = document.getElementById('name').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+
+            if (name && contact.length >= 5) {
+                // Take first 5 letters of name (or full name if shorter)
+                const namePart = name.replace(/\s+/g, '').substring(0, 5).toUpperCase();
+                // Take last 5 digits of phone
+                const phonePart = contact.substring(Math.max(0, contact.length - 5));
+                
+                const referralCode = namePart + phonePart;
+                document.getElementById('generatedReferralCode').textContent = referralCode;
+                document.getElementById('referralCodeContainer').style.display = 'block';
+            }
+        }
+
+        // Copy Referral Code
+        function copyReferralCode() {
+            const code = document.getElementById('generatedReferralCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Referral code copied to clipboard: ' + code);
+            });
+        }
+
         // Form Submission
         document.getElementById('joinForm').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -821,41 +1072,56 @@
                 interest: document.getElementById('interest').value,
                 message: document.getElementById('message').value,
                 reference: document.getElementById('reference').value,
-                timestamp: new Date().toLocaleString()
+                referralCode: document.getElementById('generatedReferralCode').textContent,
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
             };
 
-            // Create WhatsApp message
+            // Create WhatsApp message with improved formatting
             const whatsappMessage = encodeURIComponent(
-                `*New Partner Registration*\n\n` +
-                `👤 *Name:* ${formData.name}\n` +
-                `🎂 *Age:* ${formData.age}\n` +
-                `📱 *Contact:* ${formData.contact}\n` +
-                `📧 *Email:* ${formData.email || 'Not provided'}\n` +
-                `📍 *Location:* ${formData.location}\n` +
-                `🎓 *Qualification:* ${formData.qualification}\n` +
-                `💼 *Experience:* ${formData.exexperience} years\n` +
-                `🎯 *Interest:* ${formData.interest}\n` +
-                `📝 *Message:* ${formData.message}\n` +
-                `🔗 *Reference:* ${formData.reference || 'None'}\n` +
-                `🕒 *Submitted at:* ${formData.timestamp}\n\n` +
-                `_This form was submitted via MultiConnect Website_`
+                `🌟 *NEW PARTNER REGISTRATION - MULTICONNECT* 🌟\n\n` +
+                `📋 *PERSONAL DETAILS*\n` +
+                `• 👤 *Name:* ${formData.name}\n` +
+                `• 🎂 *Age:* ${formData.age} years\n` +
+                `• 📱 *WhatsApp:* ${formData.contact}\n` +
+                `• 📧 *Email:* ${formData.email || 'Not provided'}\n\n` +
+                
+                `📍 *LOCATION & BACKGROUND*\n` +
+                `• 🏙️ *Location:* ${formData.location}\n` +
+                `• 🎓 *Qualification:* ${formData.qualification}\n` +
+                `• 💼 *Experience:* ${formData.experience} years\n\n` +
+                
+                `🎯 *INTERESTS & GOALS*\n` +
+                `• 🔥 *Service Interest:* ${formData.interest}\n` +
+                `• 💬 *Message:* ${formData.message}\n\n` +
+                
+                `🔗 *REFERRAL INFORMATION*\n` +
+                `• 📍 *Reference Code:* ${formData.reference || 'None'}\n` +
+                `• 🆔 *Generated Referral Code:* ${formData.referralCode}\n\n` +
+                
+                `📅 *SUBMISSION DETAILS*\n` +
+                `• 🕒 *Submitted at:* ${formData.timestamp}\n` +
+                `• 🌐 *Via:* MultiConnect Website\n\n` +
+                
+                `_Please process this registration and send onboarding details._`
             );
 
-            // Your WhatsApp number (replace with actual number)
+            // WhatsApp number
             const whatsappNumber = "919985943961";
 
             // Open WhatsApp with pre-filled message
             setTimeout(() => {
                 window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
 
-                // Reset form and button
-                document.getElementById('joinForm').reset();
+                // Reset button
                 document.getElementById('btnText').style.display = 'inline';
                 document.getElementById('spinner').style.display = 'none';
 
                 // Show success message
-                alert('Thank you! Opening WhatsApp to send your details. Please complete the process by sending the message.');
-            }, 1500);
+                alert('✅ Registration successful! Opening WhatsApp to send your details. Please complete the process by sending the message.');
+                
+                // Keep form data for potential edit
+                // Don't reset form so user can edit if needed
+            }, 1000);
         });
 
         // Earnings Calculator Functions
@@ -864,45 +1130,67 @@
             document.getElementById('bookingsValue').textContent = `${value} Bookings`;
         }
 
-        function updateTeam() {
-            const value = document.getElementById('teamRange').value;
-            document.getElementById('teamValue').textContent = `${value} Members`;
+        function updateReferrals() {
+            document.getElementById('referralsL1Value').textContent = 
+                `${document.getElementById('referralsL1').value} Members`;
+            document.getElementById('referralsL2Value').textContent = 
+                `${document.getElementById('referralsL2').value} Members`;
+            document.getElementById('referralsL3Value').textContent = 
+                `${document.getElementById('referralsL3').value} Members`;
         }
 
         function calculateEarnings() {
             const bookings = parseInt(document.getElementById('bookingsRange').value);
-            const teamMembers = parseInt(document.getElementById('teamRange').value);
+            const referralsL1 = parseInt(document.getElementById('referralsL1').value);
+            const referralsL2 = parseInt(document.getElementById('referralsL2').value);
+            const referralsL3 = parseInt(document.getElementById('referralsL3').value);
 
             // Base salary
-            let baseSalary = 5000;
+            const baseSalary = 5000;
 
-            // Commission calculation (simplified)
+            // Commission calculation
             let commission = 0;
-            if (bookings < 5) commission = bookings * 700;
-            else if (bookings >= 5 && bookings < 10) commission = bookings * 800;
+            if (bookings <= 5) commission = bookings * 700;
+            else if (bookings <= 10) commission = bookings * 800;
             else if (bookings <= 20) commission = bookings * 1000;
-            else commission = 1350 + bookings * 1100;
+            else commission = bookings * 1100;
 
-            // Referral bonus
-            const referralBonus = teamMembers * 200;
+            // Referral earnings (3-level system)
+            const referralEarnings = 
+                (referralsL1 * 100) +  // Level 1: ₹100 each
+                (referralsL2 * 50) +   // Level 2: ₹50 each
+                (referralsL3 * 50);    // Level 3: ₹50 each
+
+            // Team bonus (if total team reaches 100)
+            const totalTeam = referralsL1 + referralsL2 + referralsL3;
+            const teamBonus = totalTeam >= 100 ? 10000 : 0;
 
             // Total earnings
-            const totalEarnings = baseSalary + commission + referralBonus;
+            const totalEarnings = baseSalary + commission + referralEarnings + teamBonus;
 
-            // Display result
+            // Display result with detailed breakdown
             document.getElementById('earningsResult').innerHTML = `
-                <h3>Your Estimated Monthly Earnings: ₹${totalEarnings.toLocaleString()}</h3>
-                <p>📊 Breakdown:</p>
-                <p>• Base Salary: ₹${baseSalary}</p>
-                <p>• Booking Commission: ₹${commission}</p>
-                <p>• Referral Bonus: ₹${referralBonus}</p>
-                <p>• Total: ₹${totalEarnings}</p>
+                <h3>Your Estimated Monthly Earnings: ₹${totalEarnings.toLocaleString('en-IN')}</h3>
+                <p>📊 <strong>Detailed Breakdown:</strong></p>
+                <p>• 💰 Base Salary: ₹${baseSalary.toLocaleString('en-IN')}</p>
+                <p>• 📈 Booking Commission (${bookings} bookings): ₹${commission.toLocaleString('en-IN')}</p>
+                <p>• 👥 Referral Earnings:</p>
+                <p style="margin-left: 20px;">   - Level 1 (${referralsL1} × ₹100): ₹${(referralsL1 * 100).toLocaleString('en-IN')}</p>
+                <p style="margin-left: 20px;">   - Level 2 (${referralsL2} × ₹50): ₹${(referralsL2 * 50).toLocaleString('en-IN')}</p>
+                <p style="margin-left: 20px;">   - Level 3 (${referralsL3} × ₹50): ₹${(referralsL3 * 50).toLocaleString('en-IN')}</p>
+                <p>• 🎯 Total Referral: ₹${referralEarnings.toLocaleString('en-IN')}</p>
+                <p>• 🏆 Team Bonus (100+ members): ${teamBonus > 0 ? '₹' + teamBonus.toLocaleString('en-IN') : 'Not reached'}</p>
+                <hr style="margin: 10px 0; border-color: #ccc;">
+                <p style="font-size: 1.3rem; color: var(--primary);">💰 <strong>Total Monthly: ₹${totalEarnings.toLocaleString('en-IN')}</strong></p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">
+                    <i class="fas fa-info-circle"></i> Based on current inputs. Actual earnings may vary.
+                </p>
             `;
         }
 
         // Initialize calculator
         updateBookings();
-        updateTeam();
+        updateReferrals();
         calculateEarnings();
 
         // Smooth scrolling
@@ -925,9 +1213,15 @@
             });
         });
 
-        // Form validation
+        // Form validation for phone number
         document.getElementById('contact').addEventListener('input', function (e) {
             this.value = this.value.replace(/\D/g, '').substring(0, 10);
+            generateReferralCode();
+        });
+
+        // Auto-generate referral code on page load if fields are pre-filled
+        document.addEventListener('DOMContentLoaded', function() {
+            generateReferralCode();
         });
     </script>
 </body>
