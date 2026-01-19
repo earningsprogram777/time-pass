@@ -1594,15 +1594,15 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card animate">
                     <div class="testimonial-content">
-                        <p>"Joined MultiConnect 6 months ago with just ₹299. Today I'm earning ₹25,000+ monthly. The
+                        <p>"Joined MultiConnect 6 months ago with just ₹299. Today I'm earning ₹5,000+ monthly. The
                             referral system is amazing!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                    alt="Rahul Kumar">
+                                    alt="Hemanth">
                             </div>
                             <div>
-                                <div style="font-weight: 600;">Rahul Kumar</div>
+                                <div style="font-weight: 600;">Dileep</div>
                                 <div style="font-size: 14px; color: var(--gray);">Member since 2023</div>
                             </div>
                         </div>
@@ -1619,7 +1619,7 @@
                                     alt="Priya Sharma">
                             </div>
                             <div>
-                                <div style="font-weight: 600;">Priya Sharma</div>
+                                <div style="font-weight: 600;">priya</div>
                                 <div style="font-size: 14px; color: var(--gray);">Member since 2022</div>
                             </div>
                         </div>
@@ -1715,7 +1715,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2024 MultiConnect. All rights reserved. | UPI ID: 9985943961@mbk</p>
+                <p>&copy; 2024 MultiConnect. | UPI ID: 9985943961@mbk</p>
                 <p style="margin-top: 10px; font-size: 12px;">One-time registration: ₹299 | Minimum age: 18 years |
                     Terms apply</p>
             </div>
@@ -1821,11 +1821,11 @@
             const phone = whatsappInput.value.trim();
 
             if (name && phone.length === 10) {
-                const namePart = name.substring(0, 3).toUpperCase().replace(/\s/g, '');
-                const phonePart = phone.substring(phone.length - 4);
-                const randomPart = Math.floor(1000 + Math.random() * 9000);
+                const namePart = name.substring(0, 5).toUpperCase().replace(/\s/g, '');
+                const phonePart = phone.substring(phone.length - 5);
+                
 
-                const referralCode = `MC${namePart}${phonePart}${randomPart}`;
+                const referralCode = `${namePart}${phonePart}`;
                 referralCodeElement.textContent = referralCode;
                 referralDisplay.style.display = 'block';
 
