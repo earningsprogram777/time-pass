@@ -4,38 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MultiConnect Pro | India's Leading Multi-Services Platform</title>
+    <title>MultiConnect | India's Leading Multi-Services Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         /* ===== CSS Variables ===== */
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --secondary: #0ea5e9;
-            --accent: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #0a0f1c;
-            --light: #ffffff;
-            --gray: #94a3b8;
-            --gray-light: #f1f5f9;
-            --gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0ea5e9 100%);
-            --gradient-accent: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
-            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            --shadow-neon: 0 0 20px rgba(14, 165, 233, 0.3);
-            --radius: 12px;
-            --radius-lg: 20px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #6366F1;
+            --primary-light: #818CF8;
+            --primary-dark: #4F46E5;
+            --secondary: #10B981;
+            --accent: #8B5CF6;
+            --dark: #0F172A;
+            --dark-light: #1E293B;
+            --light: #F8FAFC;
+            --gray: #94A3B8;
+            --gray-light: #334155;
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --glow: 0 0 20px rgba(99, 102, 241, 0.2);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* ===== Reset & Base Styles ===== */
@@ -43,6 +43,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            touch-action: manipulation;
         }
 
         html {
@@ -52,24 +53,48 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
-            color: var(--dark);
-            background: #f8fafc;
+            color: var(--light);
+            background: var(--dark);
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            background-image:
+                radial-gradient(at 20% 30%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
         h1,
         h2,
         h3,
         h4 {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
         a {
             text-decoration: none;
             color: inherit;
             transition: var(--transition);
+            cursor: pointer;
+        }
+
+        button,
+        .btn,
+        input,
+        select,
+        textarea {
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button:active,
+        .btn:active {
+            transform: scale(0.98);
         }
 
         .container {
@@ -79,86 +104,30 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: 120px 0;
+            position: relative;
         }
 
         img {
             max-width: 100%;
             height: auto;
+            border-radius: var(--radius);
         }
 
-        /* ===== Particles Background ===== */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+        /* ===== Glassmorphism Effect ===== */
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* ===== Premium Animations ===== */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        @keyframes glow {
-
-            0%,
-            100% {
-                box-shadow: var(--shadow-neon);
-            }
-
-            50% {
-                box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        /* ===== Premium Buttons ===== */
+        /* ===== Buttons ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -173,7 +142,9 @@
             border: none;
             position: relative;
             overflow: hidden;
-            transform-style: preserve-3d;
+            user-select: none;
+            min-height: 56px;
+            letter-spacing: 0.5px;
         }
 
         .btn::before {
@@ -183,7 +154,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             transition: 0.5s;
         }
 
@@ -192,53 +163,42 @@
         }
 
         .btn-primary {
-            background: var(--gradient);
+            background: var(--gradient-primary);
             color: white;
-            box-shadow: var(--shadow-lg);
-            animation: glow 2s infinite;
+            box-shadow: var(--shadow-md), var(--glow);
         }
 
         .btn-primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(99, 102, 241, 0.4);
         }
 
         .btn-secondary {
-            background: var(--gradient-accent);
+            background: var(--secondary);
             color: white;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .btn-warning {
-            background: var(--gradient-warning);
-            color: white;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-warning:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(16, 185, 129, 0.4);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--secondary);
-            border: 2px solid var(--secondary);
-            backdrop-filter: blur(10px);
+            color: var(--primary-light);
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-outline:hover {
-            background: var(--secondary);
+            background: var(--primary);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg), 0 0 20px rgba(99, 102, 241, 0.3);
         }
 
-        /* ===== Premium Header ===== */
+        /* ===== Header ===== */
         header {
             position: fixed;
             top: 0;
@@ -246,52 +206,110 @@
             width: 100%;
             z-index: 1000;
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
-            padding: 15px 0;
+            animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         header.scrolled {
-            box-shadow: var(--shadow-xl);
-            padding: 10px 0;
+            box-shadow: var(--shadow-lg);
+            animation: headerShadow 0.3s ease-out;
+        }
+
+        @keyframes headerShadow {
+            from {
+                box-shadow: none;
+            }
+
+            to {
+                box-shadow: var(--shadow-lg);
+            }
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 28px;
+            gap: 14px;
+            font-size: 26px;
             font-weight: 900;
             color: white;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            position: relative;
         }
 
         .logo img {
-            width: 50px;
-            height: 50px;
-            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));
+            width: 44px;
+            height: 44px;
+            animation: logoPulse 3s infinite;
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+        }
+
+        @keyframes logoPulse {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+            }
+
+            50% {
+                transform: scale(1.05) rotate(5deg);
+                filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.8));
+            }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             align-items: center;
         }
 
         .nav-links a {
-            color: white;
             font-weight: 500;
             position: relative;
             padding: 8px 0;
+            color: var(--gray);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
         }
 
         .nav-links a::after {
@@ -301,8 +319,9 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gradient);
-            transition: var(--transition);
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
@@ -316,93 +335,153 @@
             font-size: 24px;
             color: white;
             cursor: pointer;
+            padding: 12px;
+            border-radius: 12px;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        /* ===== Premium Hero Section ===== */
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
+        /* ===== Hero Section ===== */
         .hero {
             padding-top: 180px;
             padding-bottom: 100px;
             position: relative;
             overflow: hidden;
-            background: var(--gradient);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
+            background:
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgMove 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgMove {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(-50px, -50px) scale(1.1);
+            }
         }
 
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
         .hero-text h1 {
             font-size: 64px;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            }
+
+            to {
+                text-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+            }
         }
 
         .hero-text p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 32px;
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 36px;
             line-height: 1.8;
+            font-weight: 300;
         }
 
         .hero-buttons {
             display: flex;
             gap: 20px;
             margin-bottom: 48px;
-            flex-wrap: wrap;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 28px;
             margin-top: 48px;
         }
 
         .stat-item {
             text-align: center;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            padding: 28px;
+            background: rgba(30, 41, 59, 0.6);
             border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .stat-item:nth-child(3) {
+            animation-delay: 0.6s;
         }
 
         .stat-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px) scale(1.03);
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: var(--shadow-lg), var(--glow);
         }
 
         .stat-number {
             font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            animation: countUp 2s ease-out;
         }
 
         .hero-image {
@@ -411,196 +490,131 @@
 
         .hero-image img {
             width: 100%;
-            height: 500px;
+            height: 540px;
             object-fit: cover;
-            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
             animation: float 6s ease-in-out infinite;
-            transform-style: preserve-3d;
-            transform: perspective(1000px) rotateY(-10deg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* ===== Monthly Offer Banner ===== */
-        .monthly-offer {
-            background: var(--gradient-warning);
-            color: white;
-            padding: 25px 0;
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+                box-shadow: var(--shadow-xl);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(1deg);
+                box-shadow: 0 40px 60px -20px rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        /* ===== Services Section ===== */
+        .services {
             position: relative;
-            overflow: hidden;
         }
 
-        .offer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .offer-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            backdrop-filter: blur(10px);
-        }
-
-        .countdown {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .countdown-item {
+        .section-header {
             text-align: center;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px 20px;
-            border-radius: var(--radius);
-            min-width: 70px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 80px;
         }
 
-        .countdown-number {
-            font-size: 28px;
-            font-weight: 800;
-        }
-
-        /* ===== Dynamic Plans Section ===== */
-        .plans-section {
-            background: var(--gray-light);
-        }
-
-        .plan-toggle {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            background: white;
-            padding: 10px;
+        .section-subtitle {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 24px;
             border-radius: 50px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: subtitlePulse 2s infinite;
             box-shadow: var(--shadow-md);
         }
 
-        .plan-option {
-            flex: 1;
-            text-align: center;
-            padding: 20px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
+        @keyframes subtitlePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
-        .plan-option.active {
-            background: var(--gradient);
+        .section-header h2 {
+            font-size: 52px;
+            margin-bottom: 24px;
             color: white;
-            transform: scale(1.05);
-        }
-
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .plan-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
             position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
+            display: inline-block;
         }
 
-        .plan-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--secondary);
-        }
-
-        .plan-card.popular {
-            border: 2px solid var(--secondary);
-            transform: scale(1.05);
-        }
-
-        .plan-card.popular::before {
-            content: 'MOST POPULAR';
+        .section-header h2::after {
+            content: '';
             position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--secondary);
-            color: white;
-            padding: 8px 40px;
-            transform: rotate(45deg);
-            font-size: 12px;
-            font-weight: 600;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
         }
 
-        .plan-price {
-            font-size: 56px;
-            font-weight: 900;
-            color: var(--primary);
-            margin: 20px 0;
-        }
-
-        .plan-price .currency {
-            font-size: 24px;
-            vertical-align: super;
-        }
-
-        .plan-price .original {
-            font-size: 24px;
+        .section-header p {
+            font-size: 18px;
             color: var(--gray);
-            text-decoration: line-through;
-            margin-left: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
         }
 
-        .plan-features {
-            list-style: none;
-            margin: 30px 0;
-        }
-
-        .plan-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--gray-light);
-            color: var(--primary-light);
-        }
-
-        .plan-features li i {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
-        /* ===== Enhanced Services ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 36px;
         }
 
         .service-card {
-            background: white;
+            background: rgba(30, 41, 59, 0.7);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
             position: relative;
-            transform-style: preserve-3d;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.05;
         }
 
         .service-card:hover {
-            transform: translateY(-15px) rotateX(5deg);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-xl), 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .service-image {
@@ -617,323 +631,673 @@
         }
 
         .service-card:hover .service-image img {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(2deg);
         }
 
         .service-content {
-            padding: 30px;
+            padding: 36px;
             position: relative;
+            z-index: 2;
         }
 
         .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            border-radius: 20px;
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             font-size: 28px;
             color: white;
-            position: absolute;
-            top: -35px;
-            left: 30px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-code {
-            display: inline-block;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            margin-top: 20px;
             transition: var(--transition);
-            border: none;
-        }
-
-        .service-code:hover {
-            transform: translateY(-3px);
             box-shadow: var(--shadow-md);
         }
 
-        /* ===== Dynamic Payment Section ===== */
-        .payment-section {
-            background: var(--gradient);
+        .service-card:hover .service-icon {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .service-code {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-light);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            margin-top: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+            user-select: none;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .service-code:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        /* ===== Payment Section ===== */
+        .payment {
+            background: var(--gradient-dark);
             position: relative;
             overflow: hidden;
         }
 
+        .payment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            animation: pulse 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
         .payment-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-lg);
-            padding: 50px;
+            padding: 56px;
+            text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
-            color: white;
+            position: relative;
+            z-index: 1;
+            animation: cardGlow 3s infinite alternate;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        .qr-generator {
+        @keyframes cardGlow {
+            from {
+                box-shadow:
+                    0 20px 40px rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+
+            to {
+                box-shadow:
+                    0 20px 40px rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                    0 0 40px rgba(99, 102, 241, 0.2);
+            }
+        }
+
+        .qr-container {
             background: white;
-            padding: 30px;
+            padding: 24px;
             border-radius: var(--radius);
             display: inline-block;
-            margin: 30px 0;
+            margin: 28px 0;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .dynamic-upi {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px 30px;
+        .qr-container:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .upi-display {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 24px 40px;
             border-radius: var(--radius);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 22px;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            border: 2px dashed rgba(255, 255, 255, 0.3);
+            font-family: 'Courier New', monospace;
+            font-size: 26px;
+            letter-spacing: 2px;
+            margin: 28px 0;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            user-select: none;
+            color: var(--primary-light);
         }
 
-        /* ===== Enhanced Registration ===== */
+        .upi-display:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: var(--shadow-md);
+        }
+
+        .payment-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 36px;
+        }
+
+        /* ===== Registration Form ===== */
         .registration-form {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 50px;
-            box-shadow: var(--shadow-xl);
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: var(--radius-lg);
+            padding: 56px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: formSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes formSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 28px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
+            position: relative;
         }
 
-        .form-label {
+        .form-group label {
             display: block;
             margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--primary-light);
+            font-weight: 500;
+            color: white;
+            font-size: 15px;
+            letter-spacing: 0.5px;
         }
 
         .form-control {
             width: 100%;
-            padding: 16px 20px;
-            border: 2px solid var(--gray-light);
-            border-radius: var(--radius);
+            padding: 16px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             font-size: 16px;
             transition: var(--transition);
+            background: rgba(15, 23, 42, 0.5);
+            color: white;
             font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            background: rgba(15, 23, 42, 0.7);
         }
 
-        /* ===== Advanced Calculator ===== */
-        .calculator-section {
-            background: var(--gray-light);
-        }
-
-        .calculator-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 40px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-
-        .calculator-tab {
-            padding: 15px 30px;
-            background: white;
-            border-radius: var(--radius);
+        .password-toggle {
+            position: absolute;
+            right: 20px;
+            top: 45px;
+            background: none;
+            border: none;
+            color: var(--gray);
             cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
             transition: var(--transition);
-            font-weight: 600;
-            white-space: nowrap;
         }
 
-        .calculator-tab.active {
-            background: var(--gradient);
+        .password-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
             color: white;
         }
 
-        .calculator-interface {
-            background: white;
+        textarea.form-control {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .referral-display {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+            padding: 36px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin: 36px 0;
+            border: 2px dashed var(--primary);
+            animation: pulseBorder 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes pulseBorder {
+
+            0%,
+            100% {
+                border-color: var(--primary);
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+            }
+
+            50% {
+                border-color: var(--accent);
+                box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
+            }
+        }
+
+        .referral-code {
+            font-family: 'Courier New', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--primary-light);
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            animation: codeGlow 1.5s infinite alternate;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition);
+        }
+
+        @keyframes codeGlow {
+            from {
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+            }
+
+            to {
+                box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+            }
+        }
+
+        .referral-code:hover {
+            transform: scale(1.02);
+            background: rgba(15, 23, 42, 0.9);
+            border-color: var(--primary);
+        }
+
+        /* ===== Download App Section ===== */
+        .download-app {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
             border-radius: var(--radius-lg);
-            padding: 40px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .download-app::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            animation: dotsMove 20s linear infinite;
+        }
+
+        @keyframes dotsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(100px);
+            }
+        }
+
+        .download-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 36px;
             box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            animation: downloadPulse 2s infinite;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .slider-container {
-            margin-bottom: 30px;
+        @keyframes downloadPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: var(--shadow-lg);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4);
+            }
         }
 
-        .slider-header {
+        .download-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: var(--shadow-xl), 0 0 40px rgba(99, 102, 241, 0.4);
+            animation: none;
+        }
+
+        /* ===== Referral Section ===== */
+        .referral-levels {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            margin-top: 56px;
+        }
+
+        .level-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: var(--radius-lg);
+            padding: 44px 28px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: cardFlip 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .level-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .level-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .level-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .level-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .level-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .level-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes cardFlip {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg) translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0) translateY(0);
+            }
+        }
+
+        .level-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-xl), 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .level-number {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: numberCount 2s ease-out;
+        }
+
+        @keyframes numberCount {
+            from {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .level-amount {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 20px 0;
+            color: white;
+            animation: moneyRain 1s ease-out;
+        }
+
+        .level-card p {
+            color: var(--gray);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ===== Calculator Section ===== */
+        .calculator {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: var(--radius-lg);
+            padding: 56px;
+            margin-top: 56px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: calculatorSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes calculatorSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-60px) rotate(-5deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0);
+            }
+        }
+
+        .calculator-sliders {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 36px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 36px;
+        }
+
+        .slider-group {
+            margin-bottom: 36px;
+        }
+
+        .slider-label {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
+            font-weight: 500;
+            color: white;
         }
 
         .slider-value {
             font-weight: 700;
-            color: var(--secondary);
-            background: var(--gray-light);
-            padding: 5px 15px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 16px;
             border-radius: 50px;
+            animation: valueBounce 0.3s ease-out;
+            box-shadow: var(--shadow-sm);
+        }
+
+        @keyframes valueBounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         input[type="range"] {
             width: 100%;
             height: 10px;
             -webkit-appearance: none;
-            background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             outline: none;
+            transition: var(--transition);
         }
 
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: white;
             cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            border: 3px solid var(--secondary);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 2px solid var(--primary);
         }
 
-        .calculator-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            background: var(--primary-light);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
         }
 
-        .result-card {
-            background: var(--gradient);
+        .calculator-result {
+            background: rgba(15, 23, 42, 0.8);
             color: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            text-align: center;
-        }
-
-        .result-value {
-            font-size: 36px;
-            font-weight: 800;
-            margin-top: 10px;
-        }
-
-        /* ===== Withdrawal System ===== */
-        .withdrawal-section {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .withdrawal-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            padding: 44px;
             border-radius: var(--radius-lg);
-            padding: 40px;
-            max-width: 600px;
-            margin: 0 auto;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .balance-display {
             text-align: center;
-            margin-bottom: 30px;
+            box-shadow: var(--shadow-lg);
+            animation: resultPop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .balance-amount {
-            font-size: 64px;
+        @keyframes resultPop {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .result-amount {
+            font-size: 56px;
             font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 20px 0;
+            animation: amountGlow 3s infinite alternate;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .withdrawal-form {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
+        @keyframes amountGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.8));
+            }
         }
 
-        .withdrawal-form input {
-            flex: 1;
-            padding: 16px 20px;
-            border-radius: var(--radius);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 16px;
-        }
-
-        .withdrawal-form input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* ===== App Promotion ===== */
-        .app-promotion {
-            background: var(--gradient);
-            color: white;
-            border-radius: var(--radius-lg);
-            padding: 60px;
-            text-align: center;
-            margin-top: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-promotion::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-
-        .app-download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: white;
-            color: var(--primary);
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 18px;
-            margin-top: 30px;
-            transition: var(--transition);
-        }
-
-        .app-download-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: var(--shadow-xl);
-        }
-
-        /* ===== Premium Footer ===== */
+        /* ===== Footer ===== */
         footer {
-            background: var(--primary);
-            color: white;
+            background: rgba(15, 23, 42, 0.95);
             padding: 80px 0 40px;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            animation: footerFadeIn 1s ease-out;
+        }
+
+        @keyframes footerFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .footer-grid {
@@ -944,82 +1308,112 @@
         }
 
         .footer-logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            gap: 14px;
+            color: white;
+        }
+
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
         }
 
         .footer-links h4 {
             font-size: 18px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
         }
 
         .footer-links ul {
             list-style: none;
         }
 
-        .footer-links li {
-            margin-bottom: 12px;
+        .footer-links ul li {
+            margin-bottom: 14px;
         }
 
         .footer-links a {
-            color: #cbd5e1;
+            color: var(--gray);
             transition: var(--transition);
+            display: inline-block;
+            padding: 4px 0;
         }
 
         .footer-links a:hover {
             color: white;
-            padding-left: 10px;
+            padding-left: 8px;
+            transform: translateX(5px);
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: #cbd5e1;
+            gap: 14px;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            color: white;
+            transform: translateX(5px);
         }
 
         .social-links {
             display: flex;
             gap: 16px;
-            margin-top: 24px;
+            margin-top: 28px;
         }
 
         .social-link {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--gray);
             transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-3px) rotate(10deg);
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px) rotate(5deg);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .copyright {
             text-align: center;
             padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
             font-size: 14px;
         }
 
@@ -1028,138 +1422,304 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 70px;
-            height: 70px;
-            background: #25D366;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: var(--shadow-xl);
+            font-size: 30px;
+            box-shadow: var(--shadow-lg);
             z-index: 1000;
             transition: var(--transition);
-            animation: pulse 2s infinite;
+            text-decoration: none;
+            animation: whatsappPulse 2s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes whatsappPulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(37, 211, 102, 0.7),
+                    var(--shadow-lg);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 15px rgba(37, 211, 102, 0),
+                    0 15px 30px rgba(37, 211, 102, 0.3);
+            }
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            transform: scale(1.1) rotate(5deg);
+            animation: none;
+            box-shadow:
+                0 20px 40px rgba(37, 211, 102, 0.4),
+                var(--shadow-lg);
         }
 
-
-        /* ===== 3D Card Effects ===== */
-        .service-card,
-        .plan-card,
-        .calculator-interface {
-            transform-style: preserve-3d;
-            perspective: 1000px;
+        /* ===== Refer & Earn Modal ===== */
+        .refer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
-        /* ===== Responsive Design ===== */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+        .refer-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .refer-modal-content {
+            background: rgba(30, 41, 59, 0.95);
+            padding: 44px;
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalPop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-60px) rotateX(60deg);
             }
 
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .withdrawal-form {
-                flex-direction: column;
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateX(0);
             }
         }
 
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
+        .close-modal {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            font-size: 24px;
+            color: var(--gray);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .share-btn {
+            padding: 14px 28px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 52px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .share-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+
+        .share-btn.sms {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .share-btn.copy {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== Testimonials ===== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 36px;
+            margin-top: 56px;
+        }
+
+        .testimonial-card {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 36px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: testimonialFloat 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .testimonial-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .testimonial-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .testimonial-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes testimonialFloat {
+            from {
+                opacity: 0;
+                transform: translateY(60px) rotateX(-30deg);
             }
 
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--primary);
-                flex-direction: column;
-                padding: 40px;
-                transition: var(--transition);
-                box-shadow: var(--shadow-xl);
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
             }
+        }
 
-            .nav-links.active {
-                left: 0;
-            }
+        .testimonial-card::before {
+            content: '"';
+            font-size: 80px;
+            color: rgba(99, 102, 241, 0.2);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: Georgia, serif;
+            animation: quoteFade 3s infinite;
+        }
 
-            .mobile-menu-btn {
-                display: block;
-            }
+        @keyframes quoteFade {
 
-            .hero-text h1 {
-                font-size: 42px;
-            }
-
-            .offer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .plan-card.popular {
+            0%,
+            100% {
+                opacity: 0.2;
                 transform: scale(1);
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 36px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .calculator-results {
-                grid-template-columns: 1fr;
-            }
-
-            .registration-form,
-            .payment-card,
-            .calculator-interface {
-                padding: 30px 20px;
+            50% {
+                opacity: 0.4;
+                transform: scale(1.1);
             }
         }
 
-        /* ===== Loading Animations ===== */
+        .testimonial-content p {
+            color: var(--gray);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            animation: avatarSpin 20s linear infinite;
+        }
+
+        @keyframes avatarSpin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== Animations ===== */
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Loading ===== */
         .loading {
             display: inline-block;
             width: 24px;
             height: 24px;
-            border: 3px solid rgba(255, 255, 255, .3);
+            border: 3px solid rgba(255, 255, 255, .2);
             border-radius: 50%;
             border-top-color: white;
             animation: spin 1s ease-in-out infinite;
-            margin-left: 10px;
+            margin-left: 12px;
         }
 
         @keyframes spin {
@@ -1168,30 +1728,48 @@
             }
         }
 
-        /* ===== Notification System ===== */
+        /* ===== Notification ===== */
         .notification {
             position: fixed;
             top: 100px;
-            right: 20px;
-            background: var(--accent);
+            right: 24px;
+            background: rgba(30, 41, 59, 0.95);
             color: white;
-            padding: 20px 30px;
+            padding: 18px 28px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--shadow-lg);
             z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 15px;
-            animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            max-width: 400px;
+            gap: 14px;
+            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 320px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .notification.error {
-            background: var(--danger);
+            background: rgba(239, 68, 68, 0.9);
         }
 
-        .notification.warning {
-            background: var(--warning);
+        .notification.info {
+            background: rgba(99, 102, 241, 0.9);
+        }
+
+        .notification.success {
+            background: rgba(34, 197, 94, 0.9);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         /* ===== Progress Steps ===== */
@@ -1199,8 +1777,7 @@
             display: flex;
             justify-content: space-between;
             position: relative;
-            margin: 50px auto;
-            max-width: 600px;
+            margin: 44px 0;
         }
 
         .progress-steps::before {
@@ -1209,33 +1786,35 @@
             top: 50%;
             left: 0;
             right: 0;
-            height: 4px;
-            background: var(--gray-light);
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-50%);
             z-index: 1;
+            border-radius: 2px;
         }
 
         .progress-bar {
             position: absolute;
             top: 50%;
             left: 0;
-            height: 4px;
-            background: var(--gradient);
+            height: 3px;
+            background: var(--gradient-primary);
             transform: translateY(-50%);
             transition: var(--transition);
             z-index: 2;
+            border-radius: 2px;
         }
 
         .step {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border: 4px solid var(--gray-light);
+            width: 44px;
+            height: 44px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            font-weight: 600;
             color: var(--gray);
             position: relative;
             z-index: 3;
@@ -1243,51 +1822,215 @@
         }
 
         .step.active {
-            background: var(--gradient);
-            border-color: var(--secondary);
+            background: var(--gradient-primary);
+            border-color: var(--primary);
             color: white;
-            transform: scale(1.1);
+            animation: stepPulse 2s infinite;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
         }
 
-        /* ===== Chart Container ===== */
-        .chart-container {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            margin-top: 50px;
-            box-shadow: var(--shadow-lg);
+        @keyframes stepPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
-        /* ===== Section Headers ===== */
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-subtitle {
-            display: inline-block;
-            background: var(--gradient);
-            color: white;
-            padding: 10px 25px;
+        /* ===== Car App Link ===== */
+        .car-app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 12px 24px;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
             border-radius: 50px;
-            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            transition: var(--transition);
+            border: 1px solid rgba(245, 158, 11, 0.2);
         }
 
-        .section-header h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--primary);
+        .car-app-link:hover {
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px) rotate(-2deg);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.1);
+            border-color: var(--warning);
         }
 
-        .section-header p {
-            font-size: 18px;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
+        /* ===== Password Strength Indicator ===== */
+        .password-strength {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .strength-weak {
+            background: linear-gradient(90deg, #EF4444, #F87171);
+            width: 33%;
+        }
+
+        .strength-medium {
+            background: linear-gradient(90deg, #F59E0B, #FBBF24);
+            width: 66%;
+        }
+
+        .strength-strong {
+            background: linear-gradient(90deg, #10B981, #34D399);
+            width: 100%;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 56px;
+            }
+
+            .section-header h2 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .referral-levels {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+
+            .section-header h2 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 40px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-xl);
+                z-index: 999;
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .referral-levels {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-card,
+            .registration-form {
+                padding: 36px 24px;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-buttons,
+            .hero-buttons,
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .btn,
+            .share-btn {
+                width: 100%;
+            }
+
+            .refer-modal-content {
+                padding: 28px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* ===== Custom Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
         }
     </style>
 </head>
@@ -1299,18 +2042,43 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Withdrawal Float -->
-    <button class="withdrawal-float" id="withdrawalFloat" title="Spot Withdrawal">
-        <i class="fas fa-rupee-sign"></i>
-    </button>
+    <!-- Refer & Earn Modal -->
+    <div class="refer-modal" id="referModal">
+        <div class="refer-modal-content">
+            <button class="close-modal" onclick="closeReferModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="service-icon" style="margin: 0 auto 20px; background: var(--gradient-primary);">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h3 style="color: white; margin-bottom: 12px;">Share & Earn ₹100</h3>
+            <p style="color: var(--gray); margin-bottom: 24px;">Share your referral code with friends and earn ₹100 for
+                every successful registration!</p>
+            <div class="referral-code" id="modalReferralCode">MCREF0000</div>
+            <div class="share-buttons">
+                <button class="share-btn whatsapp" onclick="shareViaWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+                <button class="share-btn sms" onclick="shareViaSMS()">
+                    <i class="fas fa-sms"></i> SMS
+                </button>
+                <button class="share-btn copy" onclick="copyReferralToClipboard()">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            <p style="margin-top: 20px; font-size: 14px; color: var(--gray);">
+                <i class="fas fa-info-circle"></i> Your friends get ₹100 off on registration when they use your code!
+            </p>
+        </div>
+    </div>
 
     <!-- Header -->
     <header id="header">
         <div class="container">
             <nav>
                 <div class="logo">
-                    <i class="fas fa-network-wired"></i>
-                    <span>MultiConnect Pro</span>
+                    <img src="https://img.icons8.com/color/96/000000/network.png" alt="MultiConnect Logo">
+                    <span>MultiConnect</span>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1319,13 +2087,16 @@
 
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#plans">Plans</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#payment">Payment</a></li>
+                    <li><a href="#register">Register</a></li>
+                    <li><a href="#referral">Referral</a></li>
                     <li><a href="#calculator">Earnings</a></li>
-                    <li><a href="#withdrawal">Withdraw</a></li>
                     <li><a href="https://earningsprogram777.github.io/mainlogin/loginpage"
                             class="btn btn-primary">LOGIN</a></li>
+                    <li><a href="#download" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download App
+                        </a></li>
                 </ul>
             </nav>
         </div>
@@ -1333,289 +2104,310 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div id="particles-js"></div>
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="gsap-slide-left">Unlock Unlimited Earning Potential</h1>
-                    <p class="gsap-slide-left">India's most advanced multi-service platform with dynamic pricing, spot
-                        withdrawals, and real-time Google Sheets integration. Join 1000+ successful entrepreneurs today.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#plans" class="btn btn-primary gsap-slide-left">
-                            <i class="fas fa-rocket"></i> Choose Your Plan
+                    <h1 class="animate animate__animated animate__fadeInUp">Unlock Your Earning Potential With
+                        MultiConnect</h1>
+                    <p class="animate animate__animated animate__fadeInUp">Join India's fastest-growing multi-service
+                        platform. From farmhouses to
+                        matrimony, cars to careers - access 7+ premium services and earn unlimited income with our
+                        proven business model.</p>
+                    <div class="hero-buttons animate animate__animated animate__fadeInUp">
+                        <a href="#register" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> Start Earning Now
                         </a>
-                        <a href="https://earningsprogram777.github.io/mainlogin/loginpage"
-                            class="btn btn-outline gsap-slide-left">
-                            <i class="fas fa-sign-in-alt"></i> Dashboard Login
+                        <a href="https://earningsprogram777.github.io/mainlogin/loginpage" class="btn btn-outline">
+                            <i class="fas fa-eye"></i> ACCOUNT LOGIN
                         </a>
                     </div>
-
                     <div class="hero-stats">
-                        <div class="stat-item gsap-fade-in">
-                            <div class="stat-number">1000+</div>
+                        <div class="stat-item animate animate__animated animate__fadeInUp">
+                            <div class="stat-number">50+</div>
                             <div>Active Members</div>
                         </div>
-                        <div class="stat-item gsap-fade-in" style="animation-delay: 0.2s;">
-                            <div class="stat-number">₹25L+</div>
+                        <div class="stat-item animate animate__animated animate__fadeInUp">
+                            <div class="stat-number">₹50k+</div>
                             <div>Total Earnings</div>
                         </div>
-                        <div class="stat-item gsap-fade-in" style="animation-delay: 0.4s;">
+                        <div class="stat-item animate animate__animated animate__fadeInUp">
                             <div class="stat-number">7+</div>
                             <div>Services</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="hero-image gsap-slide-right">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        alt="MultiConnect Success">
+                <div class="hero-image animate animate__animated animate__fadeInUp">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="MultiConnect Team">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Monthly Offer Banner -->
-    <section class="monthly-offer">
-        <div class="container">
-            <div class="offer-content">
-                <div class="offer-badge">
-                    <i class="fas fa-gift"></i> SPECIAL MONTHLY OFFER
-                </div>
-
-                <div class="offer-text">
-                    <h3 style="color: white; margin-bottom: 5px;">₹200 Bonus on First Referral!</h3>
-                    <p style="color: rgba(255,255,255,0.9);">Limited time offer - This month only!</p>
-                </div>
-
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div style="font-size: 12px;">Days</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div style="font-size: 12px;">Hours</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div style="font-size: 12px;">Minutes</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dynamic Plans Section -->
-    <section class="plans-section" id="plans">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Flexible Plans</div>
-                <h2>Choose Your Membership Plan</h2>
-                <p>Dynamic pricing fetched directly from Google Sheets. Prices update automatically.</p>
-            </div>
-
-            <div class="plan-toggle">
-                <div class="plan-option active" data-plan="basic">Basic Plan</div>
-                <div class="plan-option" data-plan="premium">Premium Plan</div>
-            </div>
-
-            <div class="plans-grid">
-                <!-- Plan 1 - Dynamic -->
-                <div class="plan-card popular" id="planCard1">
-                    <div class="plan-icon">
-                        <i class="fas fa-crown" style="font-size: 48px; color: #f59e0b;"></i>
-                    </div>
-                    <h3 id="plan1-title">MOST POPULAR</h3>
-                    <div class="plan-price">
-                        <span class="currency">₹</span><span id="plan1-price">299</span>
-                        <span class="original" id="plan1-original">₹499</span>
-                    </div>
-                    <p style="color: var(--gray); margin-bottom: 20px;" id="plan1-savings">Save ₹200</p>
-
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> <span id="plan1-ref1">₹200</span> First Referral Bonus
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Level 1: <span id="plan1-l1">₹100</span> per referral
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Level 2: <span id="plan1-l2">₹50</span> per referral
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Level 3: <span id="plan1-l3">₹30</span> per referral
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Access to All 7 Services</li>
-                        <li><i class="fas fa-check-circle"></i> Spot Withdrawal Available</li>
-                        <li><i class="fas fa-check-circle"></i> 24/7 WhatsApp Support</li>
-                    </ul>
-
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;"
-                        onclick="selectPlan('plan1')">
-                        <i class="fas fa-shopping-cart"></i> Choose This Plan
-                    </button>
-                </div>
-
-                <!-- Plan 2 - Dynamic -->
-                <div class="plan-card" id="planCard2">
-                    <div class="plan-icon">
-                        <i class="fas fa-gem" style="font-size: 48px; color: #0ea5e9;"></i>
-                    </div>
-                    <h3 id="plan2-title">PREMIUM</h3>
-                    <div class="plan-price">
-                        <span class="currency">₹</span><span id="plan2-price">499</span>
-                        <span class="original" id="plan2-original">₹999</span>
-                    </div>
-                    <p style="color: var(--gray); margin-bottom: 20px;" id="plan2-savings">Save ₹500</p>
-
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> <span id="plan2-ref1">₹400</span> First Referral Bonus
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Level 1: <span id="plan2-l1">₹200</span> per referral
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Level 2: <span id="plan2-l2">₹100</span> per referral
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Level 3: <span id="plan2-l3">₹50</span> per referral
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Higher Commission Rates</li>
-                        <li><i class="fas fa-check-circle"></i> Priority Withdrawals</li>
-                        <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
-                    </ul>
-
-                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;"
-                        onclick="selectPlan('plan2')">
-                        <i class="fas fa-gem"></i> Go Premium
-                    </button>
-                </div>
-            </div>
-
-            <!-- Plan Comparison Chart -->
-            <div class="chart-container">
-                <canvas id="planComparisonChart"></canvas>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Our Services</div>
-                <h2>Access 7+ High-Demand Services</h2>
-                <p>Click on service codes to access exclusive resources and start earning immediately.</p>
+                <div class="section-subtitle">Our Premium Services</div>
+                <h2 class="animate animate__animated animate__fadeInUp">Access 7+ High-Demand Services</h2>
+                <p class="animate animate__animated animate__fadeInUp">Click on service codes to access exclusive
+                    resources and start earning immediately.
+                </p>
             </div>
 
             <div class="services-grid">
-                <!-- Service cards will be dynamically populated -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Dynamic Payment Section -->
-    <section class="payment-section" id="payment">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle" style="background: rgba(255,255,255,0.2);">Secure Payment</div>
-                <h2 style="color: white;">Complete Your Registration</h2>
-                <p style="color: rgba(255,255,255,0.9);">Choose your plan and make payment. After payment, fill the
-                    registration form.</p>
-            </div>
-
-            <!-- Progress Steps -->
-            <div class="progress-steps">
-                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
-                <div class="step active">1</div>
-                <div class="step">2</div>
-                <div class="step">3</div>
-                <div class="step">4</div>
-            </div>
-
-            <div class="payment-card">
-                <div class="service-icon"
-                    style="margin: 0 auto 24px; background: rgba(255,255,255,0.2); width: 80px; height: 80px;">
-                    <i class="fas fa-qrcode"></i>
-                </div>
-
-                <h3 style="color: white; margin-bottom: 16px;" id="paymentTitle">Select Plan First</h3>
-                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 24px; font-size: 15px;" id="paymentDesc">
-                    Choose a plan above to see payment details
-                </p>
-
-                <div class="qr-generator" id="qrContainer" style="display: none;">
-                    <canvas id="qrCanvas" width="200" height="200"></canvas>
-                </div>
-
-                <div class="dynamic-upi" id="upiDisplay" style="display: none;">
-                    <i class="fas fa-university" style="margin-right: 10px;"></i>
-                    <span id="upiId">9985943961@mbk</span>
-                </div>
-
-                <div class="payment-info" id="paymentInfo" style="display: none;">
-                    <div
-                        style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: var(--radius); margin: 20px 0;">
-                        <h4 style="color: white; margin-bottom: 10px;">Payment Summary</h4>
-                        <div
-                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; color: rgba(255,255,255,0.9);">
-                            <div>Selected Plan:</div>
-                            <div id="selectedPlanName" style="font-weight: 600;"></div>
-                            <div>Amount to Pay:</div>
-                            <div id="paymentAmount" style="font-weight: 600; color: #10b981;"></div>
-                            <div>First Referral Bonus:</div>
-                            <div id="refBonus" style="font-weight: 600; color: #f59e0b;"></div>
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Farm House">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
                         </div>
+                        <h3>Farm House Bookings</h3>
+                        <p>Premium farmhouse rentals for events, vacations, weddings and special occasions across India.
+                        </p>
+                        <a href="https://crazyfarmhouse777-create.github.io/crazyfarmhouse/view" target="_blank"
+                            class="service-code">
+                            <i class="fas fa-external-link-alt"></i> FH - Farm House
+                        </a>
                     </div>
                 </div>
 
-                <div class="payment-buttons"
-                    style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
-                    <button class="btn btn-primary" onclick="copyUpiId()" id="copyUpiBtn" style="display: none;">
-                        <i class="fas fa-copy"></i> Copy UPI ID & Amount
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Car Rentals">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Car Rentals</h3>
+                        <p>Best prices for daily, weekly, and monthly car rentals. All types of vehicles available.</p>
+                        <a href="https://crazyfarmhouse777-create.github.io/car/car" target="_blank"
+                            class="service-code">
+                            <i class="fas fa-external-link-alt"></i> CR - Car Rentals
+                        </a>
+                        <br>
+                        <a href="https://crazyfarmhouse777-create.github.io/car/car" target="_blank"
+                            class="car-app-link">
+                            <i class="fas fa-external-link-alt"></i> Open Car App
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Property Sales">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Property Sales</h3>
+                        <p>Expert guidance for buying and selling residential & commercial properties with legal
+                            support.</p>
+                        <a href="https://drive.google.com/drive/folders/1RciyZEKuT93Cep7vYcEKwFXceCwpbwmS?usp=drive_link"
+                            target="_blank" class="service-code">
+                            <i class="fas fa-external-link-alt"></i> PS - Property Sales
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Matrimony">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Matrimony Services</h3>
+                        <p>Trusted matchmaking with verified profiles, background checks and personalized assistance.
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/16KZZE1RP__j3qQUDvmMj11Kq81r0Ee9V?usp=drive_link"
+                            target="_blank" class="service-code">
+                            <i class="fas fa-external-link-alt"></i> MRG - Matrimony
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Solar Panel">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3>Solar Panel Solutions</h3>
+                        <p>Complete solar panel installation, maintenance, consultation and government subsidy
+                            assistance.</p>
+                        <a href="https://drive.google.com/drive/folders/1CjYBGOxkQuBkeSZ5p3uzn5WKon49ZXeW?usp=drive_link"
+                            target="_blank" class="service-code">
+                            <i class="fas fa-external-link-alt"></i> SOLAR - Solar Panel
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Education">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education Services</h3>
+                        <p>College admissions, tuitions, online courses, career counseling and study abroad assistance.
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1osRLD51eOgvGQ2Xc3DLb01XzBgBPHHRW?usp=drive_link"
+                            target="_blank" class="service-code">
+                            <i class="fas fa-external-link-alt"></i> EDU - Education
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Job Placements">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Job Placements</h3>
+                        <p>Career opportunities with top companies across IT, banking, retail, healthcare and other
+                            industries.</p>
+                        <a href="https://drive.google.com/drive/folders/14ubQuARQhfQl0p8ia2d-gLxpCJQBOw-v?usp=drive_link"
+                            target="_blank" class="service-code">
+                            <i class="fas fa-external-link-alt"></i> JOB - Job Placements
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment" id="payment">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Registration Payment</div>
+                <h2 class="animate animate__animated animate__fadeInUp">One-Time Registration: ₹299</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Pay once and unlock
+                    lifetime access to all
+                    services and unlimited earning opportunities.</p>
+            </div>
+
+            <div class="payment-card animate animate__animated animate__fadeInUp">
+                <div class="service-icon" style="margin: 0 auto 24px; background: var(--gradient-primary);">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <h3 style="color: white; margin-bottom: 16px;">Scan QR Code or Use UPI ID</h3>
+
+                <div class="qr-container">
+                    <img src="https://github.com/earningsprogram777/time-pass/blob/main/qr%20code.jpeg?raw=true"
+                        alt="UPI QR Code" width="200">
+                </div>
+
+                <div class="upi-display" id="upiDisplay">
+                    <i class="fas fa-university" style="margin-right: 10px;"></i>
+                    9985943961@mbk
+                </div>
+
+                <p style="color: var(--gray); margin-bottom: 24px; font-size: 15px;">
+                    <i class="fas fa-info-circle"></i> After payment, fill the registration form below with transaction
+                    details. Include Transaction ID for verification.
+                </p>
+
+                <div class="payment-buttons">
+                    <button class="btn btn-primary" onclick="copyUpiId()">
+                        <i class="fas fa-copy"></i> Copy UPI ID
                     </button>
-                    <button class="btn btn-secondary" onclick="generatePaymentMessage()" id="whatsappBtn"
-                        style="display: none;">
-                        <i class="fab fa-whatsapp"></i> Share Payment Details
+                    <button class="btn btn-secondary" onclick="copyPaymentMessage()">
+                        <i class="fab fa-whatsapp"></i> Get Payment Message
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Registration Form -->
+    <!-- Registration Section -->
     <section id="register">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Complete Registration</div>
-                <h2>Join Our Network</h2>
-                <p>Fill this form after payment. We'll contact you on WhatsApp within 24 hours.</p>
+                <div class="section-subtitle">Join Our Network</div>
+                <h2 class="animate animate__animated animate__fadeInUp">Complete Your Registration</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Fill this form after
+                    payment. We'll contact you on WhatsApp within 24 hours for
+                    onboarding.</p>
             </div>
 
-            <div class="registration-form">
+            <!-- Progress Steps -->
+            <div class="progress-steps animate animate__animated animate__fadeInUp">
+                <div class="progress-bar" id="progressBar" style="width: 33%;"></div>
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+            </div>
+
+            <div class="registration-form animate animate__animated animate__fadeInUp">
                 <form id="registrationForm">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="fullName" class="form-label">Full Name *</label>
+                            <label for="fullName">Full Name *</label>
                             <input type="text" id="fullName" class="form-control" required
                                 placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
-                            <label for="age" class="form-label">Age *</label>
+                            <label for="age">Age *</label>
                             <input type="number" id="age" class="form-control" required min="18" max="60"
                                 placeholder="Your age">
                         </div>
                         <div class="form-group">
-                            <label for="whatsapp" class="form-label">WhatsApp Number *</label>
+                            <label for="whatsapp">WhatsApp Number *</label>
                             <input type="tel" id="whatsapp" class="form-control" required pattern="[0-9]{10}"
                                 placeholder="10-digit WhatsApp number">
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email">Email Address</label>
                             <input type="email" id="email" class="form-control" placeholder="Your email address">
                         </div>
                         <div class="form-group">
-                            <label for="location" class="form-label">City & State *</label>
+                            <label for="password">Create Password *</label>
+                            <input type="password" id="password" class="form-control" required
+                                placeholder="Create a strong password" minlength="6">
+                            <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="password-strength">
+                                <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password *</label>
+                            <input type="password" id="confirmPassword" class="form-control" required
+                                placeholder="Confirm your password">
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">City & State *</label>
                             <input type="text" id="location" class="form-control" required
                                 placeholder="Your current location">
                         </div>
                         <div class="form-group">
-                            <label for="qualification" class="form-label">Highest Qualification *</label>
+                            <label for="qualification">Highest Qualification *</label>
                             <select id="qualification" class="form-control" required>
                                 <option value="">Select Qualification</option>
                                 <option value="10th">10th Pass</option>
@@ -1627,64 +2419,77 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="selectedPlan" class="form-label">Selected Plan *</label>
-                            <select id="selectedPlan" class="form-control" required>
-                                <option value="">Select Plan</option>
-                                <option value="basic">Basic Plan (₹299)</option>
-                                <option value="premium">Premium Plan (₹499)</option>
+                            <label for="experience">Years of Experience</label>
+                            <select id="experience" class="form-control">
+                                <option value="0">Fresher</option>
+                                <option value="1">1 Year</option>
+                                <option value="2">2 Years</option>
+                                <option value="3">3 Years</option>
+                                <option value="4">4 Years</option>
+                                <option value="5+">5+ Years</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="paymentMethod" class="form-label">Payment Method *</label>
-                            <select id="paymentMethod" class="form-control" required>
-                                <option value="">Select Method</option>
-                                <option value="upi">UPI Payment</option>
-                                <option value="bank">Bank Transfer</option>
+                            <label for="interest">Service Interest *</label>
+                            <select id="interest" class="form-control" required>
+                                <option value="">Select Preferred Service</option>
+                                <option value="FH">Farm House Bookings</option>
+                                <option value="CR">Car Rentals</option>
+                                <option value="PR">Property Rentals</option>
+                                <option value="MRG">Matrimony Services</option>
+                                <option value="JOB">Job Placements</option>
+                                <option value="SALES">Sales & Marketing</option>
+                                <option value="ALL">All Services</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reference">Reference Code (if any)</label>
+                            <input type="text" id="reference" class="form-control"
+                                placeholder="Referral code from friend (optional)">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="transactionId" class="form-label">Transaction ID *</label>
-                        <input type="text" id="transactionId" class="form-control" required
-                            placeholder="UPI Transaction ID / Bank Reference Number">
+                        <label for="paymentDetails">Payment Details *</label>
+                        <textarea id="paymentDetails" class="form-control" required
+                            placeholder="Payment details: UPI Transaction ID, Amount (₹299), Date, Time"
+                            rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="referralCode" class="form-label">Referral Code (Optional)</label>
-                        <input type="text" id="referralCode" class="form-control"
-                            placeholder="Friend's referral code (if any)">
+                        <label for="message">Why do you want to join MultiConnect? *</label>
+                        <textarea id="message" class="form-control" required
+                            placeholder="Briefly describe your interest, goals, and what you hope to achieve..."
+                            rows="4"></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message" class="form-label">Why do you want to join MultiConnect? *</label>
-                        <textarea id="message" class="form-control" required rows="4"
-                            placeholder="Briefly describe your goals and expectations..."></textarea>
-                    </div>
-
-                    <div class="referral-display" id="referralDisplay"
-                        style="display: none; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 32px; border-radius: var(--radius); text-align: center; margin: 32px 0; border: 2px dashed var(--primary);">
+                    <div class="referral-display" id="referralDisplay" style="display: none;">
                         <h3>Your Unique Referral Code</h3>
-                        <p>Share this code with friends to earn extra income through our 3-level referral system!</p>
-                        <div class="referral-code" id="referralCode"
-                            style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; letter-spacing: 4px; color: var(--primary); margin: 16px 0; padding: 16px; background: white; border-radius: 8px; border: 2px solid #e5e7eb;">
-                            MCREF0000</div>
-                        <button type="button" class="btn btn-primary" onclick="copyReferralCode()">
-                            <i class="fas fa-copy"></i> Copy Referral Code
-                        </button>
+                        <p style="color: var(--gray);">Share this code with friends to earn extra income through our
+                            3-level referral system!</p>
+                        <div class="referral-code" id="referralCode">MCREF0000</div>
+                        <div class="share-buttons">
+                            <button type="button" class="btn btn-primary" onclick="copyReferralCode()">
+                                <i class="fas fa-copy"></i> Copy Referral Code
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="openReferModal()">
+                                <i class="fas fa-share-alt"></i> Share & Earn
+                            </button>
+                        </div>
                         <p style="margin-top: 15px; font-size: 14px; color: var(--gray);">
-                            <i class="fas fa-lightbulb"></i> Earn bonus on each direct referral using this code!
+                            <i class="fas fa-lightbulb"></i> Earn ₹100 for each direct referral using this code!
                         </p>
                     </div>
 
                     <div style="text-align: center; margin-top: 40px;">
                         <button type="submit" class="btn btn-primary" style="padding: 18px 48px; font-size: 18px;"
                             id="submitBtn">
-                            <span id="btnText">Complete Registration</span>
+                            <span id="btnText">Submit Registration</span>
                             <div class="loading" id="loadingSpinner" style="display: none;"></div>
                         </button>
                         <p style="margin-top: 15px; color: var(--gray); font-size: 14px;">
-                            <i class="fas fa-shield-alt"></i> Your information is secure and encrypted
+                            <i class="fas fa-shield-alt"></i> Your information is secure and will only be used for
+                            registration purposes.
                         </p>
                     </div>
                 </form>
@@ -1692,123 +2497,251 @@
         </div>
     </section>
 
-    <!-- Advanced Calculator Section -->
-    <section class="calculator-section" id="calculator">
+    <!-- Download App Section -->
+    <div class="container">
+        <section class="download-app" id="download">
+            <div class="section-header">
+                <h2 class="animate animate__animated animate__fadeInUp">Download MultiConnect App</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Get instant access to
+                    all services, manage your earnings, and grow your network on the go!</p>
+            </div>
+            <button
+                onclick="window.open('https://drive.google.com/file/d/166Tf0FczDsmZ3--Iddx1YMjmRnHYNr_7/view', '_blank')"
+                class="download-btn animate animate__animated animate__fadeInUp">
+                <i class="fas fa-download"></i> Download Now
+            </button>
+        </section>
+    </div>
+
+    <!-- Referral Section -->
+    <section class="referral" id="referral">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Earning Structure</div>
+                <h2 class="animate animate__animated animate__fadeInUp">3-Level Referral System</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Build your team and
+                    earn from every level of your network with our transparent
+                    multi-level system.</p>
+            </div>
+
+            <div class="referral-levels">
+                <div class="level-card level-1 animate animate__animated animate__fadeInUp">
+                    <div class="level-number">L1</div>
+                    <h3>Direct Referrals</h3>
+                    <div class="level-amount">₹100</div>
+                    <p style="color: var(--gray);">For every person you directly refer to MultiConnect</p>
+                </div>
+
+                <div class="level-card level-2 animate animate__animated animate__fadeInUp">
+                    <div class="level-number">L2</div>
+                    <h3>Team Referrals</h3>
+                    <div class="level-amount">₹50</div>
+                    <p style="color: var(--gray);">From your Level 1 team's direct referrals</p>
+                </div>
+
+                <div class="level-card level-3 animate animate__animated animate__fadeInUp">
+                    <div class="level-number">L3</div>
+                    <h3>Network Growth</h3>
+                    <div class="level-amount">₹50</div>
+                    <p style="color: var(--gray);">From your Level 2 team's referrals</p>
+                </div>
+
+                <div class="level-card level-bonus animate animate__animated animate__fadeInUp">
+                    <div class="level-number">★</div>
+                    <h3>Team Bonus</h3>
+                    <div class="level-amount">₹10,000</div>
+                    <p style="color: var(--gray);">Achievement reward when your team reaches 100 members</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px; padding: 36px; background: rgba(30, 41, 59, 0.6); border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.05);"
+                class="animate animate__animated animate__fadeInUp">
+                <h3 style="margin-bottom: 20px;">Example Calculation</h3>
+                <p style="margin-bottom: 15px; color: var(--gray);">If you refer 5 people, and each of them refers 3
+                    people, and each of
+                    those refers 2 people:</p>
+                <div
+                    style="display: inline-block; background: rgba(15, 23, 42, 0.8); padding: 24px 36px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid rgba(255, 255, 255, 0.05);">
+                    <div style="font-size: 28px; font-weight: 800; color: var(--primary-light);">
+                        Total Earnings: ₹2,750
+                    </div>
+                    <div style="margin-top: 10px; font-size: 14px; color: var(--gray);">
+                        (5 × ₹100) + (15 × ₹50) + (30 × ₹50) = ₹2,750
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; color: var(--gray);">
+                    <i class="fas fa-info-circle"></i> Plus base salary ₹5,000 + booking commissions
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator">
         <div class="container">
             <div class="section-header">
                 <div class="section-subtitle">Earnings Calculator</div>
-                <h2>Calculate Your Potential Income</h2>
-                <p>Adjust sliders based on your chosen plan and activity level</p>
+                <h2 class="animate animate__animated animate__fadeInUp">Calculate Your Potential Income</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Adjust the sliders to
+                    see how much you can earn with MultiConnect based on your
+                    activity.</p>
             </div>
 
-            <div class="calculator-tabs">
-                <div class="calculator-tab active" data-plan="basic">Basic Plan Earnings</div>
-                <div class="calculator-tab" data-plan="premium">Premium Plan Earnings</div>
-                <div class="calculator-tab" data-plan="team">Team Building</div>
-            </div>
+            <div class="calculator animate animate__animated animate__fadeInUp">
+                <div class="calculator-sliders">
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Monthly Bookings</span>
+                            <span class="slider-value" id="bookingsValue">20</span>
+                        </div>
+                        <input type="range" id="bookingsSlider" min="0" max="50" value="20" class="slider">
+                    </div>
 
-            <div class="calculator-interface">
-                <div class="slider-container">
-                    <div class="slider-header">
-                        <span>Direct Referrals (Level 1)</span>
-                        <span class="slider-value" id="l1Value">5 people</span>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Level 1 Referrals (Direct)</span>
+                            <span class="slider-value" id="l1Value">5</span>
+                        </div>
+                        <input type="range" id="l1Slider" min="0" max="20" value="5" class="slider">
                     </div>
-                    <input type="range" id="l1Slider" min="0" max="20" value="5" class="slider">
-                </div>
 
-                <div class="slider-container">
-                    <div class="slider-header">
-                        <span>Team Size (Level 2)</span>
-                        <span class="slider-value" id="l2Value">15 people</span>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Level 2 Team Size</span>
+                            <span class="slider-value" id="l2Value">15</span>
+                        </div>
+                        <input type="range" id="l2Slider" min="0" max="50" value="15" class="slider">
                     </div>
-                    <input type="range" id="l2Slider" min="0" max="50" value="15" class="slider">
-                </div>
 
-                <div class="slider-container">
-                    <div class="slider-header">
-                        <span>Network Size (Level 3)</span>
-                        <span class="slider-value" id="l3Value">30 people</span>
-                    </div>
-                    <input type="range" id="l3Slider" min="0" max="100" value="30" class="slider">
-                </div>
-
-                <div class="slider-container">
-                    <div class="slider-header">
-                        <span>Monthly Service Bookings</span>
-                        <span class="slider-value" id="bookingsValue">20 bookings</span>
-                    </div>
-                    <input type="range" id="bookingsSlider" min="0" max="50" value="20" class="slider">
-                </div>
-
-                <div class="calculator-results">
-                    <div class="result-card">
-                        <div>Referral Earnings</div>
-                        <div class="result-value" id="referralEarnings">₹0</div>
-                    </div>
-                    <div class="result-card">
-                        <div>Service Commissions</div>
-                        <div class="result-value" id="commissionEarnings">₹0</div>
-                    </div>
-                    <div class="result-card">
-                        <div>First Referral Bonus</div>
-                        <div class="result-value" id="firstRefBonus">₹0</div>
-                    </div>
-                    <div class="result-card">
-                        <div>Total Monthly</div>
-                        <div class="result-value" id="totalEarnings">₹0</div>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Level 3 Team Size</span>
+                            <span class="slider-value" id="l3Value">30</span>
+                        </div>
+                        <input type="range" id="l3Slider" min="0" max="100" value="30" class="slider">
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 40px;">
-                    <button class="btn btn-warning" onclick="calculatePotentialEarnings()">
-                        <i class="fas fa-calculator"></i> Calculate Annual Earnings
-                    </button>
+                <div class="calculator-result">
+                    <h3>Your Estimated Monthly Earnings</h3>
+                    <div class="result-amount" id="totalEarnings">₹0</div>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; text-align: left; margin-top: 36px;">
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
+                                <span>Base Salary:</span>
+                                <span style="font-weight: 600; color: white;" id="baseSalary">₹0</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
+                                <span>Booking Commission:</span>
+                                <span style="font-weight: 600; color: white;" id="commission">₹0</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
+                                <span>Referral Earnings:</span>
+                                <span style="font-weight: 600; color: white;" id="referralEarnings">₹0</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
+                                <span>Team Bonus:</span>
+                                <span style="font-weight: 600; color: white;" id="teamBonus">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+                        <p style="color: var(--gray); font-size: 14px;">
+                            <i class="fas fa-calculator"></i> Based on average commission rates and referral structure.
+                            Actual earnings may vary.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <!-- App Promotion -->
-    <section>
+    <!-- Testimonials -->
+    <section style="background: rgba(30, 41, 59, 0.5);">
         <div class="container">
-            <div class="app-promotion">
-                <h2 style="color: white; margin-bottom: 20px;">📱 Earn On-The-Go!</h2>
-                <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-size: 18px;">
-                    Track earnings, withdraw instantly, and manage your network with our mobile app
-                </p>
+            <div class="section-header">
+                <div class="section-subtitle">Success Stories</div>
+                <h2 class="animate animate__animated animate__fadeInUp">What Our Members Say</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Join thousands who
+                    have transformed their earnings with MultiConnect.</p>
+            </div>
 
-                <a href="https://drive.google.com/file/d/166Tf0FczDsmZ3--Iddx1YMjmRnHYNr_7/view"
-                    class="app-download-btn" target="_blank">
-                    <i class="fas fa-download"></i>
-                    <div style="text-align: left;">
-                        <div style="font-size: 14px;">Download Now</div>
-                        <div style="font-size: 12px; opacity: 0.8;">MultiConnect Pro App (APK)</div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate animate__animated animate__fadeInUp">
+                    <div class="testimonial-content">
+                        <p>"Joined MultiConnect 6 months ago with just ₹299. Today I'm earning ₹5,000+ monthly. The
+                            referral system is amazing!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                    alt="Hemanth">
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: white;">Dileep</div>
+                                <div style="font-size: 14px; color: var(--gray);">Member since 2023</div>
+                            </div>
+                        </div>
                     </div>
-                </a>
+                </div>
 
-                <div style="margin-top: 30px; color: rgba(255,255,255,0.8);">
-                    <div><i class="fas fa-check-circle"></i> Android 8.0+</div>
-                    <div><i class="fas fa-check-circle"></i> Secure & Verified</div>
-                    <div><i class="fas fa-check-circle"></i> 24/7 Support</div>
+                <div class="testimonial-card animate animate__animated animate__fadeInUp">
+                    <div class="testimonial-content">
+                        <p>"The multi-service approach works! I started with car rentals, now I handle farmhouse
+                            bookings too. Great platform for entrepreneurs."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                    alt="Priya Sharma">
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: white;">priya</div>
+                                <div style="font-size: 14px; color: var(--gray);">Member since 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate animate__animated animate__fadeInUp">
+                    <div class="testimonial-content">
+                        <p>"Best decision I made! The team support is excellent, and the earning potential is unlimited.
+                            My team of 50+ keeps growing."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005-128-b2f4b26a6f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                    alt="shiva">
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: white;">Shiva</div>
+                                <div style="font-size: 14px; color: var(--gray);">Team Leader</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo">
-                        <i class="fas fa-network-wired"></i>
-                        <span>MultiConnect Pro</span>
+                        <img src="https://img.icons8.com/color/96/000000/network.png" alt="MultiConnect Logo">
+                        <span>MultiConnect</span>
                     </div>
-                    <p style="color: #cbd5e1; margin-bottom: 24px;">
-                        India's premier multi-service platform with dynamic pricing, instant withdrawals, and real-time
-                        earnings tracking.
+                    <p style="color: var(--gray); margin-bottom: 28px; font-weight: 300;">
+                        India's premier multi-service platform connecting opportunities across industries. Transform
+                        your earning potential today.
                     </p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/__.time__pass.__" class="social-link" target="_blank">
@@ -1827,9 +2760,11 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#plans">Plans</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#payment">Payment</a></li>
+                        <li><a href="#register">Register</a></li>
+                        <li><a href="#referral">Referral Plan</a></li>
+                        <li><a href="#download">Download App</a></li>
                     </ul>
                 </div>
 
@@ -1840,6 +2775,8 @@
                         <li><a href="#terms">Terms & Conditions</a></li>
                         <li><a href="#privacy">Privacy Policy</a></li>
                         <li><a href="#faq">FAQ</a></li>
+                        <li><a href="https://crazyfarmhouse777-create.github.io/car/car" target="_blank">Car App</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -1865,183 +2802,67 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2024 MultiConnect Pro </p>
-                <p style="margin-top: 10px; font-size: 12px;">Dynamic pricing from Google Sheets | Spot withdrawals
-                    available | Minimum age: 18 years</p>
+                <p>&copy; 2024 MultiConnect. | UPI ID: 9985943961@mbk</p>
+                <p style="margin-top: 10px; font-size: 12px;">One-time registration: ₹299 | Minimum age: 18 years |
+                    Terms apply</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Google Sheets Data
-        const SHEET_DATA = {
-            "basic": {
-                "originalPrice": 499,
-                "discount": 200,
-                "finalPrice": 299,
-                "firstRefBonus": 200,
-                "level1": 100,
-                "level2": 50,
-                "level3": 30
-            },
-            "premium": {
-                "originalPrice": 999,
-                "discount": 500,
-                "finalPrice": 499,
-                "firstRefBonus": 400,
-                "level1": 200,
-                "level2": 100,
-                "level3": 50
-            }
-        };
-
-        // Services Data
-        const SERVICES = [
-            {
-                name: "Farm House Bookings",
-                icon: "fas fa-home",
-                code: "FH",
-                link: "https://crazyfarmhouse777-create.github.io/crazyfarmhouse/view",
-                image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "Premium farmhouse rentals for events, vacations, weddings across India."
-            },
-            {
-                name: "Car Rentals",
-                icon: "fas fa-car",
-                code: "CR",
-                link: "https://drive.google.com/drive/folders/1673NJae73-OFaMt0FAQpMIlH63er37tw?usp=drive_link",
-                image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "Best prices for daily, weekly, and monthly car rentals."
-            },
-            {
-                name: "Property Sales",
-                icon: "fas fa-building",
-                code: "PS",
-                link: "https://drive.google.com/drive/folders/1RciyZEKuT93Cep7vYcEKwFXceCwpbwmS?usp=drive_link",
-                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "Expert guidance for buying/selling properties with legal support."
-            },
-            {
-                name: "Matrimony Services",
-                icon: "fas fa-heart",
-                code: "MRG",
-                link: "https://drive.google.com/drive/folders/16KZZE1RP__j3qQUDvmMj11Kq81r0Ee9V?usp=drive_link",
-                image: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "Trusted matchmaking with verified profiles and background checks."
-            },
-            {
-                name: "Solar Panel Solutions",
-                icon: "fas fa-solar-panel",
-                code: "SOLAR",
-                link: "https://drive.google.com/drive/folders/1CjYBGOxkQuBkeSZ5p3uzn5WKon49ZXeW?usp=drive_link",
-                image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "Complete solar installation, maintenance, and subsidy assistance."
-            },
-            {
-                name: "Education Services",
-                icon: "fas fa-graduation-cap",
-                code: "EDU",
-                link: "https://drive.google.com/drive/folders/1osRLD51eOgvGQ2Xc3DLb01XzBgBPHHRW?usp=drive_link",
-                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "College admissions, tuitions, courses, and career counseling."
-            },
-            {
-                name: "Job Placements",
-                icon: "fas fa-briefcase",
-                code: "JOB",
-                link: "https://drive.google.com/drive/folders/14ubQuARQhfQl0p8ia2d-gLxpCJQBOw-v?usp=drive_link",
-                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                desc: "Career opportunities with top companies across industries."
-            }
-        ];
-
-        // Global State
-        let selectedPlan = 'basic';
-        let userBalance = 1500; // Simulated balance
-        let recentWithdrawals = [
-            { amount: 1200, date: '2024-01-10', status: 'completed' },
-            { amount: 800, date: '2024-01-05', status: 'completed' },
-            { amount: 1500, date: '2023-12-28', status: 'completed' }
-        ];
-
         // DOM Elements
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         const registrationForm = document.getElementById('registrationForm');
         const fullNameInput = document.getElementById('fullName');
         const whatsappInput = document.getElementById('whatsapp');
-        const selectedPlanInput = document.getElementById('selectedPlan');
-        const availableBalance = document.getElementById('availableBalance');
-        const recentWithdrawalsDiv = document.getElementById('recentWithdrawals');
-        const planOptions = document.querySelectorAll('.plan-option');
-        const planCards = document.querySelectorAll('.plan-card');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const referralDisplay = document.getElementById('referralDisplay');
+        const referralCodeElement = document.getElementById('referralCode');
+        const modalReferralCodeElement = document.getElementById('modalReferralCode');
+        const upiDisplay = document.getElementById('upiDisplay');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const progressBar = document.getElementById('progressBar');
+        const referModal = document.getElementById('referModal');
+        const passwordStrengthBar = document.getElementById('passwordStrengthBar');
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Particles
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#ffffff" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#ffffff",
-                        opacity: 0.2,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: "none",
-                        random: true,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false
-                    }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: { enable: true, mode: "repulse" },
-                        onclick: { enable: true, mode: "push" }
-                    }
-                }
-            });
-
-            // Initialize GSAP Animations
+            // Initialize animations
             initAnimations();
 
-            // Load Google Sheets Data
-            loadGoogleSheetsData();
-
-            // Initialize Services
-            renderServices();
-
-            // Initialize Calculator
+            // Initialize calculator
             initializeCalculator();
 
-            // Initialize Countdown
-            initializeCountdown();
-
-            // Initialize Withdrawal System
-            initializeWithdrawalSystem();
-
-            // Setup Form Validation
+            // Set up form validation
             setupFormValidation();
 
-            // Set current year
-            document.querySelector('.copyright p').innerHTML =
-                document.querySelector('.copyright p').innerHTML.replace('2024', new Date().getFullYear());
+            // Generate referral code if fields are filled
+            fullNameInput.addEventListener('input', updateReferralCode);
+            whatsappInput.addEventListener('input', updateReferralCode);
+
+            // Format phone number input
+            whatsappInput.addEventListener('input', formatPhoneNumber);
+
+            // Password strength checker
+            passwordInput.addEventListener('input', checkPasswordStrength);
+
+            // Confirm password validation
+            confirmPasswordInput.addEventListener('input', validatePasswordMatch);
+
+            // Set current year in footer
+            document.querySelector('.copyright p').innerHTML = document.querySelector('.copyright p').innerHTML.replace('2024', new Date().getFullYear());
+
+            // Add scroll animation
+            window.addEventListener('scroll', animateOnScroll);
         });
 
-        // Mobile Menu
-        mobileMenuBtn.addEventListener('click', () => {
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
             mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
                 ? '<i class="fas fa-times"></i>'
@@ -2050,13 +2871,13 @@
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
 
-        // Header Scroll Effect
+        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 100) {
@@ -2064,495 +2885,274 @@
             } else {
                 header.classList.remove('scrolled');
             }
-
-            // Animate elements on scroll
-            animateOnScroll();
         });
 
-        // GSAP Animations
+        // Animation on scroll
         function initAnimations() {
-            // Register ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Hero animations
-            gsap.from('.gsap-slide-left', {
-                duration: 1,
-                x: -100,
-                opacity: 0,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
-            gsap.from('.gsap-slide-right', {
-                duration: 1,
-                x: 100,
-                opacity: 0,
-                delay: 0.5,
-                ease: "power3.out"
-            });
-
-            gsap.from('.gsap-fade-in', {
-                duration: 0.8,
-                opacity: 0,
-                y: 30,
-                stagger: 0.2,
-                delay: 1,
-                ease: "power2.out"
-            });
-
-            // Section animations
-            gsap.utils.toArray('.service-card, .plan-card').forEach(card => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
-                    },
-                    duration: 0.8,
-                    y: 50,
-                    opacity: 0,
-                    ease: "power2.out"
-                });
+            const animateElements = document.querySelectorAll('.animate');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
             });
         }
 
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.service-card, .plan-card, .calculator-interface');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+            const animateElements = document.querySelectorAll('.animate');
+            const windowHeight = window.innerHeight;
 
-                if (isVisible) {
+            animateElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
                     el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        // Google Sheets Integration
-        async function loadGoogleSheetsData() {
-            try {
-                // Update plan 1 (Basic)
-                document.getElementById('plan1-price').textContent = SHEET_DATA.basic.finalPrice;
-                document.getElementById('plan1-original').textContent = `₹${SHEET_DATA.basic.originalPrice}`;
-                document.getElementById('plan1-savings').textContent = `Save ₹${SHEET_DATA.basic.discount}`;
-                document.getElementById('plan1-ref1').textContent = `₹${SHEET_DATA.basic.firstRefBonus}`;
-                document.getElementById('plan1-l1').textContent = `₹${SHEET_DATA.basic.level1}`;
-                document.getElementById('plan1-l2').textContent = `₹${SHEET_DATA.basic.level2}`;
-                document.getElementById('plan1-l3').textContent = `₹${SHEET_DATA.basic.level3}`;
-
-                // Update plan 2 (Premium)
-                document.getElementById('plan2-price').textContent = SHEET_DATA.premium.finalPrice;
-                document.getElementById('plan2-original').textContent = `₹${SHEET_DATA.premium.originalPrice}`;
-                document.getElementById('plan2-savings').textContent = `Save ₹${SHEET_DATA.premium.discount}`;
-                document.getElementById('plan2-ref1').textContent = `₹${SHEET_DATA.premium.firstRefBonus}`;
-                document.getElementById('plan2-l1').textContent = `₹${SHEET_DATA.premium.level1}`;
-                document.getElementById('plan2-l2').textContent = `₹${SHEET_DATA.premium.level2}`;
-                document.getElementById('plan2-l3').textContent = `₹${SHEET_DATA.premium.level3}`;
-
-                // Update chart
-                updatePlanComparisonChart();
-
-                showNotification('Dynamic pricing loaded successfully!', 'success');
-            } catch (error) {
-                console.error('Error loading Google Sheets data:', error);
-                showNotification('Using cached pricing data', 'warning');
-            }
-        }
-
-        function updatePlanComparisonChart() {
-            const ctx = document.getElementById('planComparisonChart').getContext('2d');
-
-            if (window.planChart) {
-                window.planChart.destroy();
-            }
-
-            window.planChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['First Referral', 'Level 1', 'Level 2', 'Level 3'],
-                    datasets: [
-                        {
-                            label: 'Basic Plan',
-                            data: [
-                                SHEET_DATA.basic.firstRefBonus,
-                                SHEET_DATA.basic.level1,
-                                SHEET_DATA.basic.level2,
-                                SHEET_DATA.basic.level3
-                            ],
-                            backgroundColor: 'rgba(14, 165, 233, 0.7)',
-                            borderColor: 'rgba(14, 165, 233, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Premium Plan',
-                            data: [
-                                SHEET_DATA.premium.firstRefBonus,
-                                SHEET_DATA.premium.level1,
-                                SHEET_DATA.premium.level2,
-                                SHEET_DATA.premium.level3
-                            ],
-                            backgroundColor: 'rgba(245, 158, 11, 0.7)',
-                            borderColor: 'rgba(245, 158, 11, 1)',
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Referral Earnings Comparison'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Earnings (₹)'
-                            }
-                        }
+                    if (!el.classList.contains('animated')) {
+                        el.classList.add('animated');
                     }
                 }
             });
         }
 
-        // Services Rendering
-        function renderServices() {
-            const servicesGrid = document.querySelector('.services-grid');
-            servicesGrid.innerHTML = '';
+        // Generate Referral Code
+        function updateReferralCode() {
+            const name = fullNameInput.value.trim();
+            const phone = whatsappInput.value.trim();
 
-            SERVICES.forEach(service => {
-                const card = document.createElement('div');
-                card.className = 'service-card';
-                card.innerHTML = `
-                    <div class="service-image">
-                        <img src="${service.image}" alt="${service.name}">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="${service.icon}"></i>
-                        </div>
-                        <h3>${service.name}</h3>
-                        <p style="color: var(--gray); margin-bottom: 20px;">${service.desc}</p>
-                        <a href="${service.link}" target="_blank" class="service-code">
-                            ${service.code} - ${service.name}
-                        </a>
-                    </div>
-                `;
-                servicesGrid.appendChild(card);
-            });
-        }
+            if (name && phone.length === 10) {
+                const namePart = name.substring(0, 5).toUpperCase().replace(/\s/g, '');
+                const phonePart = phone.substring(phone.length - 5);
+                
 
-        // Plan Selection
-        planOptions.forEach(option => {
-            option.addEventListener('click', function () {
-                const plan = this.dataset.plan;
+                const referralCode = `${namePart}${phonePart}`;
+                referralCodeElement.textContent = referralCode;
+                modalReferralCodeElement.textContent = referralCode;
+                referralDisplay.style.display = 'block';
 
-                // Update active states
-                planOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-
-                // Update selected plan
-                selectedPlan = plan;
-
-                // Animate plan cards
-                planCards.forEach(card => {
-                    card.style.transform = 'translateY(0)';
-                    card.classList.remove('popular');
-                });
-
-                if (plan === 'basic') {
-                    document.getElementById('planCard1').classList.add('popular');
-                    gsap.to('#planCard1', {
-                        duration: 0.5,
-                        scale: 1.05,
-                        y: -15,
-                        ease: "power2.out"
-                    });
-                } else {
-                    document.getElementById('planCard2').classList.add('popular');
-                    gsap.to('#planCard2', {
-                        duration: 0.5,
-                        scale: 1.05,
-                        y: -15,
-                        ease: "power2.out"
-                    });
-                }
-
-                // Update form dropdown
-                selectedPlanInput.value = plan;
-
-                // Update payment section
-                updatePaymentSection();
-
-                showNotification(`${plan === 'basic' ? 'Basic' : 'Premium'} plan selected`, 'success');
-            });
-        });
-
-        function selectPlan(planType) {
-            const option = document.querySelector(`[data-plan="${planType === 'plan1' ? 'basic' : 'premium'}"]`);
-            option.click();
-
-            // Scroll to payment
-            document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
-
-            // Update progress
-            document.getElementById('progressBar').style.width = '33%';
-            document.querySelectorAll('.step')[1].classList.add('active');
-        }
-
-        // Payment Section
-        function updatePaymentSection() {
-            const plan = SHEET_DATA[selectedPlan];
-            const upiId = "9985943961@mbk";
-
-            // Show payment section
-            document.getElementById('qrContainer').style.display = 'inline-block';
-            document.getElementById('upiDisplay').style.display = 'block';
-            document.getElementById('paymentInfo').style.display = 'block';
-            document.getElementById('copyUpiBtn').style.display = 'inline-flex';
-            document.getElementById('whatsappBtn').style.display = 'inline-flex';
-
-            // Update content
-            document.getElementById('paymentTitle').textContent = `Pay ₹${plan.finalPrice} to Register`;
-            document.getElementById('paymentDesc').textContent = `use UPI ID to pay ₹${plan.finalPrice}`;
-            document.getElementById('upiId').textContent = `${upiId}`;
-            document.getElementById('selectedPlanName').textContent = `${selectedPlan === 'basic' ? 'Basic Plan' : 'Premium Plan'}`;
-            document.getElementById('paymentAmount').textContent = `₹${plan.finalPrice}`;
-            document.getElementById('refBonus').textContent = `₹${plan.firstRefBonus}`;
-
-            // Generate QR
-            generateQRCode(`upi://pay?pa=${upiId}&pn=MultiConnect&am=${plan.finalPrice}&cu=INR&tn=Registration Fee`);
-        }
-
-        function generateQRCode(text) {
-            const canvas = document.getElementById('qrCanvas');
-            const ctx = canvas.getContext('2d');
-
-            // Clear canvas
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Simple QR-like pattern (for demo)
-            // In production, use a proper QR library like qrcode.js
-            ctx.fillStyle = '#000';
-
-            // Draw border
-            ctx.fillRect(20, 20, 160, 160);
-            ctx.fillStyle = '#fff';
-            ctx.fillRect(25, 25, 150, 150);
-
-            // Draw simple pattern
-            ctx.fillStyle = '#000';
-            for (let i = 0; i < 7; i++) {
-                for (let j = 0; j < 7; j++) {
-                    if ((i + j) % 3 !== 0) {
-                        ctx.fillRect(25 + i * 20 + 5, 25 + j * 20 + 5, 10, 10);
-                    }
-                }
+                // Update progress bar
+                progressBar.style.width = '66%';
+                document.querySelectorAll('.step')[1].classList.add('active');
             }
-
-            // Draw text
-            ctx.fillStyle = '#000';
-            ctx.font = '12px Arial';
-            ctx.fillText(`₹${SHEET_DATA[selectedPlan].finalPrice}`, 70, 195);
         }
 
+        // Format Phone Number
+        function formatPhoneNumber(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').substring(0, 10);
+        }
+
+        // Toggle Password Visibility
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggleBtn = input.nextElementSibling;
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                input.type = 'password';
+                toggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+
+        // Check Password Strength
+        function checkPasswordStrength() {
+            const password = passwordInput.value;
+            let strength = 0;
+
+            // Length check
+            if (password.length >= 8) strength++;
+
+            // Lowercase check
+            if (/[a-z]/.test(password)) strength++;
+
+            // Uppercase check
+            if (/[A-Z]/.test(password)) strength++;
+
+            // Number check
+            if (/[0-9]/.test(password)) strength++;
+
+            // Special character check
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+            // Update strength bar
+            passwordStrengthBar.className = 'password-strength-bar';
+            if (strength <= 2) {
+                passwordStrengthBar.classList.add('strength-weak');
+            } else if (strength <= 4) {
+                passwordStrengthBar.classList.add('strength-medium');
+            } else {
+                passwordStrengthBar.classList.add('strength-strong');
+            }
+        }
+
+        // Validate Password Match
+        function validatePasswordMatch() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (confirmPassword && password !== confirmPassword) {
+                confirmPasswordInput.style.borderColor = '#EF4444';
+                showNotification('Passwords do not match!', 'error');
+            } else if (confirmPassword) {
+                confirmPasswordInput.style.borderColor = '#10B981';
+            } else {
+                confirmPasswordInput.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }
+        }
+
+        // Copy UPI ID
         function copyUpiId() {
-            const plan = SHEET_DATA[selectedPlan];
-            const upiId = "9985943961@mbk";
-            const text = `${upiId}\n`;
-
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification('UPI ID and amount copied to clipboard!', 'success');
+            const upiId = upiDisplay.textContent.trim();
+            navigator.clipboard.writeText(upiId).then(() => {
+                showNotification('UPI ID copied to clipboard!', 'success');
             }).catch(err => {
-                showNotification('Failed to copy. Please copy manually.', 'error');
+                showNotification('Failed to copy UPI ID', 'error');
             });
         }
 
-        function generatePaymentMessage() {
-            const plan = SHEET_DATA[selectedPlan];
-            const upiId = "9985943961@mbk";
-            const message = `MultiConnect Registration Payment\n\nPlan: ${selectedPlan === 'basic' ? 'Basic (₹299)' : 'Premium (₹499)'}\nAmount: ₹${plan.finalPrice}\nUPI ID: ${upiId}\n\nAfter payment, please fill the registration form with transaction ID.`;
+        // Copy Payment Message
+        function copyPaymentMessage() {
+            const upiId = upiDisplay.textContent.trim();
+            const message = `MultiConnect Registration Payment Details:\n\nUPI ID: ${upiId}\nAmount: ₹299\nPurpose: Registration Fee\n\nAfter payment, please fill the registration form at the website with transaction details.`;
 
-            const whatsappUrl = `https://wa.me/919985943961?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            navigator.clipboard.writeText(message).then(() => {
+                showNotification('Payment message copied! Ready to share on WhatsApp.', 'success');
+            }).catch(err => {
+                showNotification('Failed to copy message', 'error');
+            });
         }
 
-        // Calculator
-        function initializeCalculator() {
-            const sliders = ['l1Slider', 'l2Slider', 'l3Slider', 'bookingsSlider'];
+        // Copy Referral Code
+        function copyReferralCode() {
+            const code = referralCodeElement.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showNotification('Referral code copied to clipboard!', 'success');
+            }).catch(err => {
+                showNotification('Failed to copy referral code', 'error');
+            });
+        }
 
-            sliders.forEach(sliderId => {
-                const slider = document.getElementById(sliderId);
-                const valueElement = document.getElementById(sliderId.replace('Slider', 'Value'));
+        // Copy Referral Code to Clipboard (for modal)
+        function copyReferralToClipboard() {
+            const code = modalReferralCodeElement.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showNotification('Referral code copied to clipboard!', 'success');
+                closeReferModal();
+            }).catch(err => {
+                showNotification('Failed to copy referral code', 'error');
+            });
+        }
 
-                slider.addEventListener('input', () => {
-                    valueElement.textContent = `${slider.value} ${sliderId.includes('l') ? 'people' : 'bookings'}`;
-                    calculateEarnings();
+        // Open Refer Modal
+        function openReferModal() {
+            referModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Refer Modal
+        function closeReferModal() {
+            referModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Share via WhatsApp
+        function shareViaWhatsApp() {
+            const code = modalReferralCodeElement.textContent;
+            const message = `🌟 Join MultiConnect - India's Leading Multi-Services Platform! 🌟\n\n` +
+                `I just joined MultiConnect and started earning! 🤝\n\n` +
+                `Use my referral code to get ₹100 OFF on registration:\n\n` +
+                `🔑 Referral Code: ${code}\n\n` +
+                `👉 What you get:\n` +
+                `✅ Access to 7+ premium services\n` +
+                `✅ Earn ₹5,000+ monthly base salary\n` +
+                `✅ 3-level referral system (earn up to ₹100 per referral)\n` +
+                `✅ Unlimited earning potential\n\n` +
+                `One-time registration: ₹299 only!\n` +
+                `Register now: ${window.location.href}\n\n` +
+                `Don't miss this opportunity! 🚀`;
+
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+            closeReferModal();
+        }
+
+        // Share via SMS
+        function shareViaSMS() {
+            const code = modalReferralCodeElement.textContent;
+            const message = `Join MultiConnect! Use my code ${code} for ₹100 OFF. Register at: ${window.location.href}`;
+
+            if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                window.open(`sms:?body=${encodeURIComponent(message)}`);
+            } else {
+                navigator.clipboard.writeText(message).then(() => {
+                    showNotification('SMS message copied to clipboard!', 'info');
                 });
-            });
-
-            // Initialize calculator tabs
-            document.querySelectorAll('.calculator-tab').forEach(tab => {
-                tab.addEventListener('click', function () {
-                    document.querySelectorAll('.calculator-tab').forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    calculateEarnings();
-                });
-            });
-
-            calculateEarnings();
-        }
-
-        function calculateEarnings() {
-            const plan = selectedPlan === 'basic' ? SHEET_DATA.basic : SHEET_DATA.premium;
-            const l1 = parseInt(document.getElementById('l1Slider').value);
-            const l2 = parseInt(document.getElementById('l2Slider').value);
-            const l3 = parseInt(document.getElementById('l3Slider').value);
-            const bookings = parseInt(document.getElementById('bookingsSlider').value);
-
-            // Calculate earnings
-            const firstRefBonus = plan.firstRefBonus;
-            const referralEarnings = (l1 * plan.level1) + (l2 * plan.level2) + (l3 * plan.level3);
-
-            // Service commission based on plan
-            const commissionRate = selectedPlan === 'basic' ? 800 : 1200;
-            const commissionEarnings = bookings * commissionRate;
-
-            // Monthly bonus for larger teams
-            const teamBonus = (l1 + l2 + l3) >= 50 ? 5000 : 0;
-
-            const total = firstRefBonus + referralEarnings + commissionEarnings + teamBonus;
-
-            // Update display
-            document.getElementById('firstRefBonus').textContent = `₹${firstRefBonus}`;
-            document.getElementById('referralEarnings').textContent = `₹${referralEarnings.toLocaleString()}`;
-            document.getElementById('commissionEarnings').textContent = `₹${commissionEarnings.toLocaleString()}`;
-            document.getElementById('totalEarnings').textContent = `₹${total.toLocaleString()}`;
-        }
-
-        function calculatePotentialEarnings() {
-            // Calculate annual earnings
-            const monthly = parseInt(document.getElementById('totalEarnings').textContent.replace('₹', '').replace(/,/g, ''));
-            const annual = monthly * 12;
-
-            showNotification(`Potential Annual Earnings: ₹${annual.toLocaleString()}!`, 'success');
-        }
-
-        // Countdown Timer
-        function initializeCountdown() {
-            function updateCountdown() {
-                const now = new Date();
-                const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
-                const diff = endOfMonth - now;
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             }
-
-            updateCountdown();
-            setInterval(updateCountdown, 60000); // Update every minute
+            closeReferModal();
         }
 
-
-
-        // Form Handling
+        // Setup Form Validation
         function setupFormValidation() {
             registrationForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
-                if (!validateForm()) return;
+                // Validate form
+                if (!validateForm()) {
+                    return;
+                }
 
-                // Show loading
-                const btnText = document.getElementById('btnText');
-                const spinner = document.getElementById('loadingSpinner');
-                const submitBtn = document.getElementById('submitBtn');
-
+                // Show loading state
                 btnText.style.display = 'none';
-                spinner.style.display = 'inline-block';
+                loadingSpinner.style.display = 'inline-block';
                 submitBtn.disabled = true;
 
-                // Generate referral code
-                const name = fullNameInput.value.trim();
-                const phone = whatsappInput.value.trim();
-                const namePart = name.substring(0, 3).toUpperCase().replace(/\s/g, '');
-                const phonePart = phone.substring(phone.length - 4);
-                const refCode = `MC${namePart}${phonePart}`;
-
-                document.getElementById('referralCode').textContent = refCode;
-                document.getElementById('referralDisplay').style.display = 'block';
-
-                // Update progress
-                document.getElementById('progressBar').style.width = '100%';
-                document.querySelectorAll('.step').forEach(step => step.classList.add('active'));
+                // Collect form data
+                const formData = getFormData();
 
                 // Create WhatsApp message
-                const formData = getFormData();
-                formData.referralCode = refCode;
-
                 const whatsappMessage = createWhatsAppMessage(formData);
 
-                // Open WhatsApp after delay
+                // Open WhatsApp
                 setTimeout(() => {
                     window.open(`https://wa.me/919985943961?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
 
-                    showNotification('Registration complete! Opening WhatsApp...', 'success');
+                    // Update progress bar
+                    progressBar.style.width = '100%';
+                    document.querySelectorAll('.step')[2].classList.add('active');
+
+                    // Show success
+                    showNotification('Registration submitted! Opening WhatsApp...', 'success');
 
                     // Reset button
-                    btnText.style.display = 'inline';
-                    spinner.style.display = 'none';
-                    submitBtn.disabled = false;
+                    resetFormButton();
+
+                    // Show referral modal
+                    setTimeout(() => {
+                        openReferModal();
+                    }, 2000);
+
                 }, 1500);
             });
-
-            // Generate referral code when name and phone are entered
-            fullNameInput.addEventListener('input', generateReferralCode);
-            whatsappInput.addEventListener('input', generateReferralCode);
         }
 
         function validateForm() {
             const whatsapp = whatsappInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
 
             if (whatsapp.length !== 10) {
                 showNotification('Please enter a valid 10-digit WhatsApp number', 'error');
                 return false;
             }
 
-            if (!selectedPlanInput.value) {
-                showNotification('Please select a plan', 'error');
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters long', 'error');
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match!', 'error');
                 return false;
             }
 
             return true;
-        }
-
-        function generateReferralCode() {
-            const name = fullNameInput.value.trim();
-            const phone = whatsappInput.value.trim();
-
-            if (name.length >= 3 && phone.length === 10) {
-                const namePart = name.substring(0, 3).toUpperCase().replace(/\s/g, '');
-                const phonePart = phone.substring(phone.length - 4);
-                document.getElementById('referralCode').textContent = `MC${namePart}${phonePart}`;
-            }
-        }
-
-        function copyReferralCode() {
-            const code = document.getElementById('referralCode').textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                showNotification('Referral code copied!', 'success');
-            });
         }
 
         function getFormData() {
@@ -2561,59 +3161,137 @@
                 age: document.getElementById('age').value.trim(),
                 whatsapp: whatsappInput.value.trim(),
                 email: document.getElementById('email').value.trim(),
+                password: passwordInput.value,
                 location: document.getElementById('location').value.trim(),
                 qualification: document.getElementById('qualification').value,
-                plan: document.getElementById('selectedPlan').value,
-                paymentMethod: document.getElementById('paymentMethod').value,
-                transactionId: document.getElementById('transactionId').value.trim(),
-                refCode: document.getElementById('referralCode').value.trim(),
+                experience: document.getElementById('experience').value,
+                interest: document.getElementById('interest').value,
+                paymentDetails: document.getElementById('paymentDetails').value.trim(),
                 message: document.getElementById('message').value.trim(),
-                timestamp: new Date().toLocaleString('en-IN')
+                reference: document.getElementById('reference').value.trim(),
+                referralCode: referralCodeElement.textContent,
+                timestamp: new Date().toLocaleString('en-IN', {
+                    timeZone: 'Asia/Kolkata',
+                    dateStyle: 'medium',
+                    timeStyle: 'medium'
+                })
             };
         }
 
         function createWhatsAppMessage(formData) {
-            return `*MultiConnect Pro Registration*\n\n` +
-                `*👤 Personal Details*\n` +
-                `• Name: ${formData.name}\n` +
-                `• Age: ${formData.age}\n` +
-                `• WhatsApp: ${formData.whatsapp}\n` +
-                `• Email: ${formData.email || 'N/A'}\n` +
-                `• Location: ${formData.location}\n` +
-                `• Qualification: ${formData.qualification}\n\n` +
+            return `*MultiConnect Registration - Complete Details*\n\n` +
+                `*📋 PERSONAL DETAILS*\n` +
+                `• 👤 Name: ${formData.name}\n` +
+                `• 🎂 Age: ${formData.age} years\n` +
+                `• 📱 WhatsApp: ${formData.whatsapp}\n` +
+                `• 📧 Email: ${formData.email || 'Not provided'}\n` +
+                `• 🔐 Password: ${formData.password}\n` +
+                `• 📍 Location: ${formData.location}\n` +
+                `• 🎓 Qualification: ${formData.qualification}\n` +
+                `• 💼 Experience: ${formData.experience} years\n\n` +
 
-                `*💰 Payment Details*\n` +
-                `• Plan: ${formData.plan === 'basic' ? 'Basic (₹299)' : 'Premium (₹499)'}\n` +
-                `• Payment Method: ${formData.paymentMethod}\n` +
-                `• Transaction ID: ${formData.transactionId}\n\n` +
+                `*💰 PAYMENT INFORMATION*\n` +
+                `• 💸 Payment Details: ${formData.paymentDetails}\n` +
+                `• 🎯 Service Interest: ${formData.interest}\n\n` +
 
-                `*🔗 Referral Information*\n` +
-                `• My Referral Code: ${formData.referralCode || 'MC' + formData.name.substring(0, 3).toUpperCase() + formData.whatsapp.substring(6)}\n` +
-                `• Friend's Referral Code: ${formData.refCode || 'None'}\n\n` +
+                `*📝 ADDITIONAL INFORMATION*\n` +
+                `• 💬 Message: ${formData.message}\n` +
+                `• 🔗 Reference Code: ${formData.reference || 'None'}\n` +
+                `• 🆔 My Referral Code: ${formData.referralCode}\n\n` +
 
-                `*📝 Additional Information*\n` +
-                `• Message: ${formData.message}\n\n` +
+                `*🔒 ACCOUNT DETAILS*\n` +
+                `• 👤 Username: ${formData.whatsapp}\n` +
+                `• 🔑 Password: ${formData.password}\n\n` +
 
-                `*✅ Payment Completed - Please activate my account*`;
+                `*📅 REGISTRATION DETAILS*\n` +
+                `• 🕒 Submitted: ${formData.timestamp}\n` +
+                `• 🌐 Via: MultiConnect Website\n\n` +
+
+                `*✅ PAYMENT MADE - PLEASE PROCESS MY REGISTRATION*`;
+        }
+
+        function resetFormButton() {
+            btnText.style.display = 'inline';
+            loadingSpinner.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+
+        // Earnings Calculator
+        function initializeCalculator() {
+            const sliders = ['bookingsSlider', 'l1Slider', 'l2Slider', 'l3Slider'];
+            const valueElements = ['bookingsValue', 'l1Value', 'l2Value', 'l3Value'];
+
+            sliders.forEach((sliderId, index) => {
+                const slider = document.getElementById(sliderId);
+                const valueElement = document.getElementById(valueElements[index]);
+
+                slider.addEventListener('input', () => {
+                    valueElement.textContent = slider.value;
+                    calculateEarnings();
+                });
+            });
+
+            calculateEarnings();
+        }
+
+        function calculateEarnings() {
+            const bookings = parseInt(document.getElementById('bookingsSlider').value);
+            const l1 = parseInt(document.getElementById('l1Slider').value);
+            const l2 = parseInt(document.getElementById('l2Slider').value);
+            const l3 = parseInt(document.getElementById('l3Slider').value);
+
+            // Base salary
+            const baseSalary = 5000;
+
+            // Commission calculation
+            let commission = 0;
+            if (bookings <= 5) commission = bookings * 700;
+            else if (bookings <= 10) commission = bookings * 800;
+            else if (bookings <= 20) commission = bookings * 1000;
+            else commission = bookings * 1100;
+
+            // Referral earnings
+            const referralEarnings = (l1 * 100) + (l2 * 50) + (l3 * 50);
+
+            // Team bonus
+            const teamSize = l1 + l2 + l3;
+            const teamBonus = teamSize >= 100 ? 10000 : 0;
+
+            // Total earnings
+            const total = baseSalary + commission + referralEarnings + teamBonus;
+
+            // Format with Indian numbering system
+            const formatINR = (amount) => {
+                return '₹' + amount.toLocaleString('en-IN');
+            };
+
+            // Update display
+            document.getElementById('totalEarnings').textContent = formatINR(total);
+            document.getElementById('baseSalary').textContent = formatINR(baseSalary);
+            document.getElementById('commission').textContent = formatINR(commission);
+            document.getElementById('referralEarnings').textContent = formatINR(referralEarnings);
+            document.getElementById('teamBonus').textContent = teamBonus > 0 ? formatINR(teamBonus) : '₹0';
         }
 
         // Notification System
         function showNotification(message, type = 'success') {
             // Remove existing notification
-            const existing = document.querySelector('.notification');
-            if (existing) existing.remove();
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
 
-            // Create notification
+            // Create new notification
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.innerHTML = `
-                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'check-circle'}"></i>
+                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'info' ? 'info-circle' : 'check-circle'}"></i>
                 ${message}
             `;
 
             document.body.appendChild(notification);
 
-            // Auto remove
+            // Remove after 4 seconds
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translateX(100%)';
@@ -2621,26 +3299,49 @@
             }, 4000);
         }
 
-        // Smooth scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') === '#') return;
 
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
+                const targetElement = document.querySelector(targetId);
 
-                if (target) {
+                if (targetElement) {
+                    // Close mobile menu if open
                     navLinks.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
 
+                    // Scroll to element
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // Close modal on outside click
+        referModal.addEventListener('click', (e) => {
+            if (e.target === referModal) {
+                closeReferModal();
+            }
+        });
+
+        // Demo mode for testing
+        if (window.location.hash === '#demo') {
+            setTimeout(() => {
+                fullNameInput.value = 'Demo User';
+                whatsappInput.value = '9876543210';
+                document.getElementById('age').value = '25';
+                document.getElementById('location').value = 'Mumbai, Maharashtra';
+                passwordInput.value = 'Demo@123';
+                confirmPasswordInput.value = 'Demo@123';
+                updateReferralCode();
+                showNotification('Demo mode activated! Fill the form to test.', 'info');
+            }, 1000);
+        }
     </script>
 </body>
 
