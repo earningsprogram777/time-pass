@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MultiConnect | India's Leading Multi-Services Platform</title>
+    <title>MultiConnect | Professional Learning & Growth Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
@@ -28,6 +28,8 @@
             --gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
             --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
             --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            --gradient-learning: linear-gradient(135deg, #0EA5E9 0%, #3B82F6 100%);
+            --gradient-books: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
@@ -511,7 +513,7 @@
             }
         }
 
-        /* ===== Services Section ===== */
+        /* ===== Courses Section ===== */
         .services {
             position: relative;
         }
@@ -594,6 +596,18 @@
             position: relative;
         }
 
+        .service-card.learning {
+            border-top: 4px solid #0EA5E9;
+        }
+
+        .service-card.books {
+            border-top: 4px solid #8B5CF6;
+        }
+
+        .service-card.premium {
+            border-top: 4px solid #F59E0B;
+        }
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -655,6 +669,18 @@
             box-shadow: var(--shadow-md);
         }
 
+        .service-card.learning .service-icon {
+            background: var(--gradient-learning);
+        }
+
+        .service-card.books .service-icon {
+            background: var(--gradient-books);
+        }
+
+        .service-card.premium .service-icon {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+
         .service-card:hover .service-icon {
             transform: rotate(15deg) scale(1.1);
             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
@@ -671,6 +697,62 @@
             margin-bottom: 20px;
             font-weight: 300;
             line-height: 1.6;
+        }
+
+        .pricing {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 18px;
+        }
+
+        .discount-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .final-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            background: var(--gradient-primary);
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            display: inline-block;
+        }
+
+        .referral-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            margin-top: 16px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .referral-info h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--primary-light);
+        }
+
+        .referral-levels {
+            display: flex;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .level {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: var(--primary-light);
         }
 
         .service-code {
@@ -956,87 +1038,18 @@
             border-color: var(--primary);
         }
 
-        /* ===== Download App Section ===== */
-        .download-app {
-            text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            margin: 40px auto;
-            max-width: 1200px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .download-app::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-            animation: dotsMove 20s linear infinite;
-        }
-
-        @keyframes dotsMove {
-            from {
-                transform: translateY(0);
-            }
-
-            to {
-                transform: translateY(100px);
-            }
-        }
-
-        .download-btn {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 20px 48px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            margin-top: 36px;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-            animation: downloadPulse 2s infinite;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes downloadPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: var(--shadow-lg);
-            }
-
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4);
-            }
-        }
-
-        .download-btn:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: var(--shadow-xl), 0 0 40px rgba(99, 102, 241, 0.4);
-            animation: none;
-        }
-
         /* ===== Referral Section ===== */
-        .referral-levels {
+        .referral-section {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: var(--radius-lg);
+            padding: 56px;
+            margin-top: 56px;
+        }
+
+        .referral-levels-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
             margin-top: 56px;
         }
 
@@ -1080,10 +1093,6 @@
 
         .level-card:nth-child(3) {
             animation-delay: 0.3s;
-        }
-
-        .level-card:nth-child(4) {
-            animation-delay: 0.4s;
         }
 
         @keyframes cardFlip {
@@ -1841,28 +1850,6 @@
             }
         }
 
-        /* ===== Car App Link ===== */
-        .car-app-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-            padding: 12px 24px;
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .car-app-link:hover {
-            background: rgba(245, 158, 11, 0.2);
-            transform: translateY(-2px) rotate(-2deg);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.1);
-            border-color: var(--warning);
-        }
-
         /* ===== Password Strength Indicator ===== */
         .password-strength {
             height: 6px;
@@ -1913,7 +1900,7 @@
                 gap: 60px;
             }
 
-            .referral-levels {
+            .referral-levels-container {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -1963,7 +1950,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .referral-levels {
+            .referral-levels-container {
                 grid-template-columns: 1fr;
             }
 
@@ -2051,9 +2038,9 @@
             <div class="service-icon" style="margin: 0 auto 20px; background: var(--gradient-primary);">
                 <i class="fas fa-gift"></i>
             </div>
-            <h3 style="color: white; margin-bottom: 12px;">Share & Earn ₹100</h3>
-            <p style="color: var(--gray); margin-bottom: 24px;">Share your referral code with friends and earn ₹100 for
-                every successful registration!</p>
+            <h3 style="color: white; margin-bottom: 12px;">Share & Earn</h3>
+            <p style="color: var(--gray); margin-bottom: 24px;">Share your referral code with friends and earn through
+                our 3-level referral system!</p>
             <div class="referral-code" id="modalReferralCode">MCREF0000</div>
             <div class="share-buttons">
                 <button class="share-btn whatsapp" onclick="shareViaWhatsApp()">
@@ -2067,7 +2054,7 @@
                 </button>
             </div>
             <p style="margin-top: 20px; font-size: 14px; color: var(--gray);">
-                <i class="fas fa-info-circle"></i> Your friends get ₹100 off on registration when they use your code!
+                <i class="fas fa-info-circle"></i> Earn through our 3-level referral system based on purchase value!
             </p>
         </div>
     </div>
@@ -2087,16 +2074,14 @@
 
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#books">Books</a></li>
                     <li><a href="#payment">Payment</a></li>
                     <li><a href="#register">Register</a></li>
                     <li><a href="#referral">Referral</a></li>
                     <li><a href="#calculator">Earnings</a></li>
                     <li><a href="https://earningsprogram777.github.io/mainlogin/loginpage"
                             class="btn btn-primary">LOGIN</a></li>
-                    <li><a href="#download" class="btn btn-secondary">
-                            <i class="fas fa-download"></i> Download App
-                        </a></li>
                 </ul>
             </nav>
         </div>
@@ -2108,15 +2093,13 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="animate animate__animated animate__fadeInUp">Unlock Your Earning Potential With
-                        MultiConnect</h1>
-                    <p class="animate animate__animated animate__fadeInUp">Join India's fastest-growing multi-service
-                        platform. From farmhouses to
-                        matrimony, cars to careers - access 7+ premium services and earn unlimited income with our
-                        proven business model.</p>
+                    <h1 class="animate animate__animated animate__fadeInUp">Master Skills & Transform Your Future</h1>
+                    <p class="animate animate__animated animate__fadeInUp">Join India's premier learning platform.
+                        Access premium software courses, personal growth books, and earn through our 3-level referral
+                        system.</p>
                     <div class="hero-buttons animate animate__animated animate__fadeInUp">
                         <a href="#register" class="btn btn-primary">
-                            <i class="fas fa-rocket"></i> Start Earning Now
+                            <i class="fas fa-rocket"></i> Start Learning Now
                         </a>
                         <a href="https://earningsprogram777.github.io/mainlogin/loginpage" class="btn btn-outline">
                             <i class="fas fa-eye"></i> ACCOUNT LOGIN
@@ -2124,173 +2107,235 @@
                     </div>
                     <div class="hero-stats">
                         <div class="stat-item animate animate__animated animate__fadeInUp">
-                            <div class="stat-number">50+</div>
-                            <div>Active Members</div>
+                            <div class="stat-number">500+</div>
+                            <div>Active Learners</div>
                         </div>
                         <div class="stat-item animate animate__animated animate__fadeInUp">
-                            <div class="stat-number">₹50k+</div>
+                            <div class="stat-number">₹1L+</div>
                             <div>Total Earnings</div>
                         </div>
                         <div class="stat-item animate animate__animated animate__fadeInUp">
-                            <div class="stat-number">7+</div>
-                            <div>Services</div>
+                            <div class="stat-number">50+</div>
+                            <div>Resources</div>
                         </div>
                     </div>
                 </div>
                 <div class="hero-image animate animate__animated animate__fadeInUp">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        alt="MultiConnect Team">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Learning Community">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Courses Section -->
+    <section class="services" id="courses">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Our Premium Services</div>
-                <h2 class="animate animate__animated animate__fadeInUp">Access 7+ High-Demand Services</h2>
-                <p class="animate animate__animated animate__fadeInUp">Click on service codes to access exclusive
-                    resources and start earning immediately.
-                </p>
+                <div class="section-subtitle">Premium Courses</div>
+                <h2 class="animate animate__animated animate__fadeInUp">Professional Software Courses</h2>
+                <p class="animate animate__animated animate__fadeInUp">Master in-demand skills with our comprehensive
+                    software courses. Original price: ₹999, now only ₹499 after discount!</p>
             </div>
 
             <div class="services-grid">
-                <div class="service-card animate animate__animated animate__fadeInUp">
+                <div class="service-card learning animate animate__animated animate__fadeInUp">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Farm House">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="HTML & CSS Course">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
-                            <i class="fas fa-home"></i>
+                            <i class="fab fa-html5"></i>
                         </div>
-                        <h3>Farm House Bookings</h3>
-                        <p>Premium farmhouse rentals for events, vacations, weddings and special occasions across India.
-                        </p>
-                        <a href="https://crazyfarmhouse777-create.github.io/crazyfarmhouse/view" target="_blank"
-                            class="service-code">
-                            <i class="fas fa-external-link-alt"></i> FH - Farm House
-                        </a>
+                        <h3>HTML & CSS Mastery</h3>
+                        <p>Complete web development foundation. Learn to build beautiful, responsive websites from
+                            scratch.</p>
+                        <div class="pricing">
+                            <span class="original-price">₹999</span>
+                            <span class="discount-price">-₹500 OFF</span>
+                        </div>
+                        <div class="final-price">₹499</div>
+                        <div class="referral-info">
+                            <h4>Referral Earnings:</h4>
+                            <div class="referral-levels">
+                                <span class="level">L1: ₹200</span>
+                                <span class="level">L2: ₹100</span>
+                                <span class="level">L3: ₹50</span>
+                            </div>
+                        </div>
+                        <div class="service-code">
+                            <i class="fas fa-graduation-cap"></i> Course Code: MC-HTML
+                        </div>
                     </div>
                 </div>
 
-                <div class="service-card animate animate__animated animate__fadeInUp">
+                <div class="service-card learning animate animate__animated animate__fadeInUp">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Car Rentals">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="JavaScript Course">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
-                            <i class="fas fa-car"></i>
+                            <i class="fab fa-js"></i>
                         </div>
-                        <h3>Car Rentals</h3>
-                        <p>Best prices for daily, weekly, and monthly car rentals. All types of vehicles available.</p>
-                        <a href="https://crazyfarmhouse777-create.github.io/car/car" target="_blank"
-                            class="service-code">
-                            <i class="fas fa-external-link-alt"></i> CR - Car Rentals
-                        </a>
-                        <br>
-                        <a href="https://crazyfarmhouse777-create.github.io/car/car" target="_blank"
-                            class="car-app-link">
-                            <i class="fas fa-external-link-alt"></i> Open Car App
-                        </a>
+                        <h3>JavaScript Fundamentals</h3>
+                        <p>Master JavaScript programming, DOM manipulation, and modern ES6+ features for interactive
+                            websites.</p>
+                        <div class="pricing">
+                            <span class="original-price">₹999</span>
+                            <span class="discount-price">-₹500 OFF</span>
+                        </div>
+                        <div class="final-price">₹499</div>
+                        <div class="referral-info">
+                            <h4>Referral Earnings:</h4>
+                            <div class="referral-levels">
+                                <span class="level">L1: ₹200</span>
+                                <span class="level">L2: ₹100</span>
+                                <span class="level">L3: ₹50</span>
+                            </div>
+                        </div>
+                        <div class="service-code">
+                            <i class="fas fa-graduation-cap"></i> Course Code: MC-JS
+                        </div>
                     </div>
                 </div>
 
-                <div class="service-card animate animate__animated animate__fadeInUp">
+                <div class="service-card learning animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Python Course">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python Programming</h3>
+                        <p>Learn Python from basics to advanced concepts including data science, automation, and web
+                            development.</p>
+                        <div class="pricing">
+                            <span class="original-price">₹999</span>
+                            <span class="discount-price">-₹500 OFF</span>
+                        </div>
+                        <div class="final-price">₹499</div>
+                        <div class="referral-info">
+                            <h4>Referral Earnings:</h4>
+                            <div class="referral-levels">
+                                <span class="level">L1: ₹200</span>
+                                <span class="level">L2: ₹100</span>
+                                <span class="level">L3: ₹50</span>
+                            </div>
+                        </div>
+                        <div class="service-code">
+                            <i class="fas fa-graduation-cap"></i> Course Code: MC-PYTHON
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="services" id="books" style="background: rgba(30, 41, 59, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Personal Growth Library</div>
+                <h2 class="animate animate__animated animate__fadeInUp">Transformative Books Collection</h2>
+                <p class="animate animate__animated animate__fadeInUp">Access premium books for personal growth, money
+                    management, skill improvement, and strategic thinking.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card books animate animate__animated animate__fadeInUp">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Personal Growth Books">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Single Premium Book</h3>
+                        <p>Choose from our collection of premium books including Beyond Positive Thinking, Blink, and
+                            more.</p>
+                        <div class="pricing">
+                            <span class="original-price">₹499</span>
+                            <span class="discount-price">-₹200 OFF</span>
+                        </div>
+                        <div class="final-price">₹299</div>
+                        <div class="referral-info">
+                            <h4>Referral Earnings:</h4>
+                            <div class="referral-levels">
+                                <span class="level">L1: ₹100</span>
+                                <span class="level">L2: ₹50</span>
+                                <span class="level">L3: ₹50</span>
+                            </div>
+                        </div>
+                        <div class="service-code">
+                            <i class="fas fa-book"></i> Product Code: MC-BOOK
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card books animate animate__animated animate__fadeInUp">
                     <div class="service-image">
                         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Property Sales">
+                            alt="All Books Collection">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
-                            <i class="fas fa-building"></i>
+                            <i class="fas fa-gem"></i>
                         </div>
-                        <h3>Property Sales</h3>
-                        <p>Expert guidance for buying and selling residential & commercial properties with legal
-                            support.</p>
-                        <a href="https://drive.google.com/drive/folders/1RciyZEKuT93Cep7vYcEKwFXceCwpbwmS?usp=drive_link"
-                            target="_blank" class="service-code">
-                            <i class="fas fa-external-link-alt"></i> PS - Property Sales
-                        </a>
+                        <h3>All Books Collection</h3>
+                        <p>Complete access to 50+ premium books including all categories: Growth, Finance, Skills,
+                            Philosophy.</p>
+                        <div class="pricing">
+                            <span class="original-price">₹999</span>
+                            <span class="discount-price">-₹500 OFF</span>
+                        </div>
+                        <div class="final-price">₹499</div>
+                        <div class="referral-info">
+                            <h4>Referral Earnings:</h4>
+                            <div class="referral-levels">
+                                <span class="level">L1: ₹200</span>
+                                <span class="level">L2: ₹100</span>
+                                <span class="level">L3: ₹50</span>
+                            </div>
+                        </div>
+                        <div class="service-code">
+                            <i class="fas fa-book"></i> Product Code: MC-ALLBOOKS
+                        </div>
                     </div>
                 </div>
 
-                <div class="service-card animate animate__animated animate__fadeInUp">
+                <div class="service-card premium animate animate__animated animate__fadeInUp">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Matrimony">
+                        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Complete Package">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-crown"></i>
                         </div>
-                        <h3>Matrimony Services</h3>
-                        <p>Trusted matchmaking with verified profiles, background checks and personalized assistance.
+                        <h3>Complete Package</h3>
+                        <p>All Courses + All Books Collection. The ultimate learning package with everything included.
                         </p>
-                        <a href="https://drive.google.com/drive/folders/16KZZE1RP__j3qQUDvmMj11Kq81r0Ee9V?usp=drive_link"
-                            target="_blank" class="service-code">
-                            <i class="fas fa-external-link-alt"></i> MRG - Matrimony
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card animate animate__animated animate__fadeInUp">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Solar Panel">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-solar-panel"></i>
+                        <div class="pricing">
+                            <span class="original-price">₹2999</span>
+                            <span class="discount-price">-₹1500 OFF</span>
                         </div>
-                        <h3>Solar Panel Solutions</h3>
-                        <p>Complete solar panel installation, maintenance, consultation and government subsidy
-                            assistance.</p>
-                        <a href="https://drive.google.com/drive/folders/1CjYBGOxkQuBkeSZ5p3uzn5WKon49ZXeW?usp=drive_link"
-                            target="_blank" class="service-code">
-                            <i class="fas fa-external-link-alt"></i> SOLAR - Solar Panel
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card animate animate__animated animate__fadeInUp">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Education">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                        <div class="final-price">₹1499</div>
+                        <div class="referral-info">
+                            <h4>Referral Earnings:</h4>
+                            <div class="referral-levels">
+                                <span class="level">L1: ₹1000</span>
+                                <span class="level">L2: ₹100</span>
+                                <span class="level">L3: ₹50</span>
+                            </div>
                         </div>
-                        <h3>Education Services</h3>
-                        <p>College admissions, tuitions, online courses, career counseling and study abroad assistance.
-                        </p>
-                        <a href="https://drive.google.com/drive/folders/1osRLD51eOgvGQ2Xc3DLb01XzBgBPHHRW?usp=drive_link"
-                            target="_blank" class="service-code">
-                            <i class="fas fa-external-link-alt"></i> EDU - Education
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card animate animate__animated animate__fadeInUp">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Job Placements">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
+                        <div class="service-code">
+                            <i class="fas fa-crown"></i> Product Code: MC-COMPLETE
                         </div>
-                        <h3>Job Placements</h3>
-                        <p>Career opportunities with top companies across IT, banking, retail, healthcare and other
-                            industries.</p>
-                        <a href="https://drive.google.com/drive/folders/14ubQuARQhfQl0p8ia2d-gLxpCJQBOw-v?usp=drive_link"
-                            target="_blank" class="service-code">
-                            <i class="fas fa-external-link-alt"></i> JOB - Job Placements
-                        </a>
                     </div>
                 </div>
             </div>
@@ -2301,11 +2346,10 @@
     <section class="payment" id="payment">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Registration Payment</div>
-                <h2 class="animate animate__animated animate__fadeInUp">One-Time Registration: ₹299</h2>
-                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Pay once and unlock
-                    lifetime access to all
-                    services and unlimited earning opportunities.</p>
+                <div class="section-subtitle">Secure Payment</div>
+                <h2 class="animate animate__animated animate__fadeInUp">Choose Your Learning Path</h2>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Pay once and get
+                    lifetime access to your selected resources.</p>
             </div>
 
             <div class="payment-card animate animate__animated animate__fadeInUp">
@@ -2322,6 +2366,37 @@
                 <div class="upi-display" id="upiDisplay">
                     <i class="fas fa-university" style="margin-right: 10px;"></i>
                     9985943961@mbk
+                </div>
+
+                <div
+                    style="margin: 28px 0; padding: 24px; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius);">
+                    <h4 style="margin-bottom: 16px; color: white;">Payment Options:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; text-align: left;">
+                        <div>
+                            <div style="color: var(--gray); font-size: 14px;">Single Book</div>
+                            <div style="font-size: 24px; font-weight: 700; color: white;">₹299</div>
+                            <div style="font-size: 12px; color: var(--gray); margin-top: 4px;">Referral: ₹100/₹50/₹50
+                            </div>
+                        </div>
+                        <div>
+                            <div style="color: var(--gray); font-size: 14px;">Single Course</div>
+                            <div style="font-size: 24px; font-weight: 700; color: white;">₹499</div>
+                            <div style="font-size: 12px; color: var(--gray); margin-top: 4px;">Referral: ₹200/₹100/₹50
+                            </div>
+                        </div>
+                        <div>
+                            <div style="color: var(--gray); font-size: 14px;">All Books</div>
+                            <div style="font-size: 24px; font-weight: 700; color: white;">₹499</div>
+                            <div style="font-size: 12px; color: var(--gray); margin-top: 4px;">Referral: ₹200/₹100/₹50
+                            </div>
+                        </div>
+                        <div>
+                            <div style="color: var(--gray); font-size: 14px;">Complete Package</div>
+                            <div style="font-size: 24px; font-weight: 700; color: white;">₹1499</div>
+                            <div style="font-size: 12px; color: var(--gray); margin-top: 4px;">Referral: ₹1000/₹100/₹50
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <p style="color: var(--gray); margin-bottom: 24px; font-size: 15px;">
@@ -2345,11 +2420,10 @@
     <section id="register">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">Join Our Network</div>
+                <div class="section-subtitle">Join Our Learning Community</div>
                 <h2 class="animate animate__animated animate__fadeInUp">Complete Your Registration</h2>
                 <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Fill this form after
-                    payment. We'll contact you on WhatsApp within 24 hours for
-                    onboarding.</p>
+                    payment. We'll contact you on WhatsApp within 24 hours with your login credentials.</p>
             </div>
 
             <!-- Progress Steps -->
@@ -2407,39 +2481,27 @@
                                 placeholder="Your current location">
                         </div>
                         <div class="form-group">
-                            <label for="qualification">Highest Qualification *</label>
+                            <label for="qualification">Education Level *</label>
                             <select id="qualification" class="form-control" required>
-                                <option value="">Select Qualification</option>
-                                <option value="10th">10th Pass</option>
-                                <option value="12th">12th Pass</option>
+                                <option value="">Select Education</option>
+                                <option value="school">School Student</option>
+                                <option value="college">College Student</option>
                                 <option value="graduate">Graduate</option>
                                 <option value="postgraduate">Post Graduate</option>
-                                <option value="diploma">Diploma</option>
-                                <option value="other">Other</option>
+                                <option value="working">Working Professional</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="experience">Years of Experience</label>
-                            <select id="experience" class="form-control">
-                                <option value="0">Fresher</option>
-                                <option value="1">1 Year</option>
-                                <option value="2">2 Years</option>
-                                <option value="3">3 Years</option>
-                                <option value="4">4 Years</option>
-                                <option value="5+">5+ Years</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">Service Interest *</label>
-                            <select id="interest" class="form-control" required>
-                                <option value="">Select Preferred Service</option>
-                                <option value="FH">Farm House Bookings</option>
-                                <option value="CR">Car Rentals</option>
-                                <option value="PR">Property Rentals</option>
-                                <option value="MRG">Matrimony Services</option>
-                                <option value="JOB">Job Placements</option>
-                                <option value="SALES">Sales & Marketing</option>
-                                <option value="ALL">All Services</option>
+                            <label for="courseSelection">Select Your Product *</label>
+                            <select id="courseSelection" class="form-control" required>
+                                <option value="">Choose what you want to purchase</option>
+                                <option value="book">Single Book - ₹299</option>
+                                <option value="course_html">HTML & CSS Course - ₹499</option>
+                                <option value="course_js">JavaScript Course - ₹499</option>
+                                <option value="course_python">Python Course - ₹499</option>
+                                <option value="all_books">All Books Collection - ₹499</option>
+                                <option value="complete">Complete Package (All Courses + Books) - ₹1499</option>
+                                <option value="multiple">Multiple Items (Specify in payment details)</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -2452,21 +2514,21 @@
                     <div class="form-group">
                         <label for="paymentDetails">Payment Details *</label>
                         <textarea id="paymentDetails" class="form-control" required
-                            placeholder="Payment details: UPI Transaction ID, Amount (₹299), Date, Time"
+                            placeholder="Payment details: UPI Transaction ID, Amount Paid, Date, Time, Selected Product"
                             rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Why do you want to join MultiConnect? *</label>
+                        <label for="message">Your Learning Goals *</label>
                         <textarea id="message" class="form-control" required
-                            placeholder="Briefly describe your interest, goals, and what you hope to achieve..."
+                            placeholder="What skills do you want to develop? What are your career goals? How do you plan to use these resources?"
                             rows="4"></textarea>
                     </div>
 
                     <div class="referral-display" id="referralDisplay" style="display: none;">
                         <h3>Your Unique Referral Code</h3>
-                        <p style="color: var(--gray);">Share this code with friends to earn extra income through our
-                            3-level referral system!</p>
+                        <p style="color: var(--gray);">Share this code with friends to earn through our 3-level referral
+                            system!</p>
                         <div class="referral-code" id="referralCode">MCREF0000</div>
                         <div class="share-buttons">
                             <button type="button" class="btn btn-primary" onclick="copyReferralCode()">
@@ -2477,7 +2539,8 @@
                             </button>
                         </div>
                         <p style="margin-top: 15px; font-size: 14px; color: var(--gray);">
-                            <i class="fas fa-lightbulb"></i> Earn ₹100 for each direct referral using this code!
+                            <i class="fas fa-lightbulb"></i> Earn based on your friend's purchase: Book (₹100/₹50/₹50),
+                            Course (₹200/₹100/₹50), Complete Package (₹1000/₹100/₹50)
                         </p>
                     </div>
 
@@ -2488,8 +2551,8 @@
                             <div class="loading" id="loadingSpinner" style="display: none;"></div>
                         </button>
                         <p style="margin-top: 15px; color: var(--gray); font-size: 14px;">
-                            <i class="fas fa-shield-alt"></i> Your information is secure and will only be used for
-                            registration purposes.
+                            <i class="fas fa-shield-alt"></i> Your information is secure. After registration, you'll
+                            receive login credentials to access your purchased resources.
                         </p>
                     </div>
                 </form>
@@ -2497,81 +2560,102 @@
         </div>
     </section>
 
-    <!-- Download App Section -->
-    <div class="container">
-        <section class="download-app" id="download">
-            <div class="section-header">
-                <h2 class="animate animate__animated animate__fadeInUp">Download MultiConnect App</h2>
-                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Get instant access to
-                    all services, manage your earnings, and grow your network on the go!</p>
-            </div>
-            <button
-                onclick="window.open('https://drive.google.com/file/d/166Tf0FczDsmZ3--Iddx1YMjmRnHYNr_7/view', '_blank')"
-                class="download-btn animate animate__animated animate__fadeInUp">
-                <i class="fas fa-download"></i> Download Now
-            </button>
-        </section>
-    </div>
-
     <!-- Referral Section -->
-    <section class="referral" id="referral">
+    <section id="referral">
         <div class="container">
             <div class="section-header">
                 <div class="section-subtitle">Earning Structure</div>
                 <h2 class="animate animate__animated animate__fadeInUp">3-Level Referral System</h2>
-                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Build your team and
-                    earn from every level of your network with our transparent
-                    multi-level system.</p>
+                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Build your network
+                    and earn from every level with our transparent referral system.</p>
             </div>
 
-            <div class="referral-levels">
-                <div class="level-card level-1 animate animate__animated animate__fadeInUp">
-                    <div class="level-number">L1</div>
-                    <h3>Direct Referrals</h3>
-                    <div class="level-amount">₹100</div>
-                    <p style="color: var(--gray);">For every person you directly refer to MultiConnect</p>
+            <div class="referral-section animate animate__animated animate__fadeInUp">
+                <div style="text-align: center; margin-bottom: 48px;">
+                    <h3 style="color: white; margin-bottom: 24px;">How Our Referral System Works</h3>
+                    <p style="color: var(--gray); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                        When someone uses your referral code to purchase any product, you earn commissions at three
+                        levels.
+                        The amount varies based on the product purchased by your referral.
+                    </p>
                 </div>
 
-                <div class="level-card level-2 animate animate__animated animate__fadeInUp">
-                    <div class="level-number">L2</div>
-                    <h3>Team Referrals</h3>
-                    <div class="level-amount">₹50</div>
-                    <p style="color: var(--gray);">From your Level 1 team's direct referrals</p>
+                <div class="referral-levels-container">
+                    <div class="level-card">
+                        <div class="level-number">L1</div>
+                        <h3>Direct Referrals</h3>
+                        <div class="level-amount">₹100 - ₹1000</div>
+                        <p style="color: var(--gray); margin-bottom: 20px;">Earn from people you directly refer</p>
+                        <div
+                            style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: var(--radius);">
+                            <div style="font-size: 14px; color: var(--primary-light); margin-bottom: 8px;">Earnings per
+                                purchase:</div>
+                            <div style="font-size: 12px; color: var(--gray); line-height: 1.6;">
+                                • Book (₹299): ₹100<br>
+                                • Course (₹499): ₹200<br>
+                                • All Books (₹499): ₹200<br>
+                                • Complete (₹1499): ₹1000
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <div class="level-number">L2</div>
+                        <h3>Team Referrals</h3>
+                        <div class="level-amount">₹50 - ₹100</div>
+                        <p style="color: var(--gray); margin-bottom: 20px;">Earn from your Level 1 team's referrals</p>
+                        <div
+                            style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: var(--radius);">
+                            <div style="font-size: 14px; color: var(--primary-light); margin-bottom: 8px;">Earnings per
+                                purchase:</div>
+                            <div style="font-size: 12px; color: var(--gray); line-height: 1.6;">
+                                • Book (₹299): ₹50<br>
+                                • Course (₹499): ₹100<br>
+                                • All Books (₹499): ₹100<br>
+                                • Complete (₹1499): ₹100
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <div class="level-number">L3</div>
+                        <h3>Network Growth</h3>
+                        <div class="level-amount">₹50</div>
+                        <p style="color: var(--gray); margin-bottom: 20px;">Earn from your Level 2 team's referrals</p>
+                        <div
+                            style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: var(--radius);">
+                            <div style="font-size: 14px; color: var(--primary-light); margin-bottom: 8px;">Earnings per
+                                purchase:</div>
+                            <div style="font-size: 12px; color: var(--gray); line-height: 1.6;">
+                                • Book (₹299): ₹50<br>
+                                • Course (₹499): ₹50<br>
+                                • All Books (₹499): ₹50<br>
+                                • Complete (₹1499): ₹50
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="level-card level-3 animate animate__animated animate__fadeInUp">
-                    <div class="level-number">L3</div>
-                    <h3>Network Growth</h3>
-                    <div class="level-amount">₹50</div>
-                    <p style="color: var(--gray);">From your Level 2 team's referrals</p>
-                </div>
-
-                <div class="level-card level-bonus animate animate__animated animate__fadeInUp">
-                    <div class="level-number">★</div>
-                    <h3>Team Bonus</h3>
-                    <div class="level-amount">₹10,000</div>
-                    <p style="color: var(--gray);">Achievement reward when your team reaches 100 members</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px; padding: 36px; background: rgba(30, 41, 59, 0.6); border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.05);"
-                class="animate animate__animated animate__fadeInUp">
-                <h3 style="margin-bottom: 20px;">Example Calculation</h3>
-                <p style="margin-bottom: 15px; color: var(--gray);">If you refer 5 people, and each of them refers 3
-                    people, and each of
-                    those refers 2 people:</p>
                 <div
-                    style="display: inline-block; background: rgba(15, 23, 42, 0.8); padding: 24px 36px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid rgba(255, 255, 255, 0.05);">
-                    <div style="font-size: 28px; font-weight: 800; color: var(--primary-light);">
-                        Total Earnings: ₹2,750
+                    style="text-align: center; margin-top: 56px; padding: 36px; background: rgba(15, 23, 42, 0.6); border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.05);">
+                    <h3 style="margin-bottom: 20px;">Example Calculation</h3>
+                    <p style="margin-bottom: 15px; color: var(--gray);">If you refer 5 friends who buy courses (₹499
+                        each), and each of them refers 3 people who buy books (₹299 each), and each of those refers 2
+                        people:</p>
+                    <div
+                        style="display: inline-block; background: rgba(30, 41, 59, 0.8); padding: 24px 36px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--primary-light);">
+                            Total Earnings: ₹3,250
+                        </div>
+                        <div style="margin-top: 10px; font-size: 14px; color: var(--gray);">
+                            L1: (5 × ₹200) + L2: (15 × ₹50) + L3: (30 × ₹50) = ₹3,250
+                        </div>
                     </div>
-                    <div style="margin-top: 10px; font-size: 14px; color: var(--gray);">
-                        (5 × ₹100) + (15 × ₹50) + (30 × ₹50) = ₹2,750
-                    </div>
+                    <p style="margin-top: 20px; font-size: 14px; color: var(--gray);">
+                        <i class="fas fa-info-circle"></i> Plus additional earnings from Complete Package referrals
+                        (₹1000 each)!
+                    </p>
                 </div>
-                <p style="margin-top: 20px; font-size: 14px; color: var(--gray);">
-                    <i class="fas fa-info-circle"></i> Plus base salary ₹5,000 + booking commissions
-                </p>
             </div>
         </div>
     </section>
@@ -2583,20 +2667,11 @@
                 <div class="section-subtitle">Earnings Calculator</div>
                 <h2 class="animate animate__animated animate__fadeInUp">Calculate Your Potential Income</h2>
                 <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Adjust the sliders to
-                    see how much you can earn with MultiConnect based on your
-                    activity.</p>
+                    see how much you can earn through our referral system.</p>
             </div>
 
             <div class="calculator animate animate__animated animate__fadeInUp">
                 <div class="calculator-sliders">
-                    <div class="slider-group">
-                        <div class="slider-label">
-                            <span>Monthly Bookings</span>
-                            <span class="slider-value" id="bookingsValue">20</span>
-                        </div>
-                        <input type="range" id="bookingsSlider" min="0" max="50" value="20" class="slider">
-                    </div>
-
                     <div class="slider-group">
                         <div class="slider-label">
                             <span>Level 1 Referrals (Direct)</span>
@@ -2620,10 +2695,23 @@
                         </div>
                         <input type="range" id="l3Slider" min="0" max="100" value="30" class="slider">
                     </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Average Purchase Type</span>
+                            <span class="slider-value" id="purchaseType">Course (₹499)</span>
+                        </div>
+                        <select id="purchaseSelect" class="form-control" style="margin-top: 10px;">
+                            <option value="book">Book (₹299) - L1: ₹100, L2: ₹50, L3: ₹50</option>
+                            <option value="course" selected>Course (₹499) - L1: ₹200, L2: ₹100, L3: ₹50</option>
+                            <option value="all_books">All Books (₹499) - L1: ₹200, L2: ₹100, L3: ₹50</option>
+                            <option value="complete">Complete Package (₹1499) - L1: ₹1000, L2: ₹100, L3: ₹50</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="calculator-result">
-                    <h3>Your Estimated Monthly Earnings</h3>
+                    <h3>Your Estimated Referral Earnings</h3>
                     <div class="result-amount" id="totalEarnings">₹0</div>
 
                     <div
@@ -2631,99 +2719,34 @@
                         <div>
                             <div
                                 style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
-                                <span>Base Salary:</span>
-                                <span style="font-weight: 600; color: white;" id="baseSalary">₹0</span>
+                                <span>Level 1 Earnings:</span>
+                                <span style="font-weight: 600; color: white;" id="l1Earnings">₹0</span>
                             </div>
                             <div
                                 style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
-                                <span>Booking Commission:</span>
-                                <span style="font-weight: 600; color: white;" id="commission">₹0</span>
+                                <span>Level 2 Earnings:</span>
+                                <span style="font-weight: 600; color: white;" id="l2Earnings">₹0</span>
                             </div>
                         </div>
                         <div>
                             <div
                                 style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
-                                <span>Referral Earnings:</span>
-                                <span style="font-weight: 600; color: white;" id="referralEarnings">₹0</span>
+                                <span>Level 3 Earnings:</span>
+                                <span style="font-weight: 600; color: white;" id="l3Earnings">₹0</span>
                             </div>
                             <div
                                 style="display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--gray);">
-                                <span>Team Bonus:</span>
-                                <span style="font-weight: 600; color: white;" id="teamBonus">₹0</span>
+                                <span>Total Team Members:</span>
+                                <span style="font-weight: 600; color: white;" id="totalMembers">0</span>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
                         <p style="color: var(--gray); font-size: 14px;">
-                            <i class="fas fa-calculator"></i> Based on average commission rates and referral structure.
-                            Actual earnings may vary.
+                            <i class="fas fa-calculator"></i> Calculations based on selected purchase type and team
+                            size. Actual earnings may vary.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section style="background: rgba(30, 41, 59, 0.5);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Success Stories</div>
-                <h2 class="animate animate__animated animate__fadeInUp">What Our Members Say</h2>
-                <p class="animate animate__animated animate__fadeInUp" style="color: var(--gray);">Join thousands who
-                    have transformed their earnings with MultiConnect.</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate animate__animated animate__fadeInUp">
-                    <div class="testimonial-content">
-                        <p>"Joined MultiConnect 6 months ago with just ₹299. Today I'm earning ₹5,000+ monthly. The
-                            referral system is amazing!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                    alt="Hemanth">
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; color: white;">Dileep</div>
-                                <div style="font-size: 14px; color: var(--gray);">Member since 2023</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card animate animate__animated animate__fadeInUp">
-                    <div class="testimonial-content">
-                        <p>"The multi-service approach works! I started with car rentals, now I handle farmhouse
-                            bookings too. Great platform for entrepreneurs."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                    alt="Priya Sharma">
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; color: white;">priya</div>
-                                <div style="font-size: 14px; color: var(--gray);">Member since 2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card animate animate__animated animate__fadeInUp">
-                    <div class="testimonial-content">
-                        <p>"Best decision I made! The team support is excellent, and the earning potential is unlimited.
-                            My team of 50+ keeps growing."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005-128-b2f4b26a6f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                    alt="shiva">
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; color: white;">Shiva</div>
-                                <div style="font-size: 14px; color: var(--gray);">Team Leader</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2740,8 +2763,8 @@
                         <span>MultiConnect</span>
                     </div>
                     <p style="color: var(--gray); margin-bottom: 28px; font-weight: 300;">
-                        India's premier multi-service platform connecting opportunities across industries. Transform
-                        your earning potential today.
+                        India's premier learning and growth platform. Master skills, access premium resources, and build
+                        sustainable income through referrals.
                     </p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/__.time__pass.__" class="social-link" target="_blank">
@@ -2757,26 +2780,25 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>Learning Resources</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#payment">Payment</a></li>
-                        <li><a href="#register">Register</a></li>
-                        <li><a href="#referral">Referral Plan</a></li>
-                        <li><a href="#download">Download App</a></li>
+                        <li><a href="#courses">Software Courses</a></li>
+                        <li><a href="#books">Book Collections</a></li>
+                        <li><a href="#payment">Payment Options</a></li>
+                        <li><a href="#register">Registration</a></li>
+                        <li><a href="#referral">Referral System</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
-                    <h4>Resources</h4>
+                    <h4>Quick Links</h4>
                     <ul>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#calculator">Earnings Calculator</a></li>
                         <li><a href="#terms">Terms & Conditions</a></li>
                         <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="https://crazyfarmhouse777-create.github.io/car/car" target="_blank">Car App</a>
-                        </li>
+                        <li><a href="https://earningsprogram777.github.io/mainlogin/loginpage" target="_blank">Member
+                                Login</a></li>
                     </ul>
                 </div>
 
@@ -2802,9 +2824,9 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2024 MultiConnect. | UPI ID: 9985943961@mbk</p>
-                <p style="margin-top: 10px; font-size: 12px;">One-time registration: ₹299 | Minimum age: 18 years |
-                    Terms apply</p>
+                <p>&copy; 2024 MultiConnect Learning Platform. | UPI ID: 9985943961@mbk</p>
+                <p style="margin-top: 10px; font-size: 12px;">Single Book: ₹299 | Single Course: ₹499 | All Books: ₹499
+                    | Complete Package: ₹1499 | Minimum age: 18 years</p>
             </div>
         </div>
     </footer>
@@ -2828,6 +2850,14 @@
         const progressBar = document.getElementById('progressBar');
         const referModal = document.getElementById('referModal');
         const passwordStrengthBar = document.getElementById('passwordStrengthBar');
+
+        // Pricing and referral structure
+        const pricingStructure = {
+            book: { price: 299, l1: 100, l2: 50, l3: 50 },
+            course: { price: 499, l1: 200, l2: 100, l3: 50 },
+            all_books: { price: 499, l1: 200, l2: 100, l3: 50 },
+            complete: { price: 1499, l1: 1000, l2: 100, l3: 50 }
+        };
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function () {
@@ -2920,7 +2950,6 @@
             if (name && phone.length === 10) {
                 const namePart = name.substring(0, 5).toUpperCase().replace(/\s/g, '');
                 const phonePart = phone.substring(phone.length - 5);
-                
 
                 const referralCode = `${namePart}${phonePart}`;
                 referralCodeElement.textContent = referralCode;
@@ -3011,7 +3040,7 @@
         // Copy Payment Message
         function copyPaymentMessage() {
             const upiId = upiDisplay.textContent.trim();
-            const message = `MultiConnect Registration Payment Details:\n\nUPI ID: ${upiId}\nAmount: ₹299\nPurpose: Registration Fee\n\nAfter payment, please fill the registration form at the website with transaction details.`;
+            const message = `MultiConnect Learning Platform Payment Details:\n\nUPI ID: ${upiId}\n\nProduct Options:\n• Single Book: ₹299 (Referral: ₹100/₹50/₹50)\n• Single Course: ₹499 (Referral: ₹200/₹100/₹50)\n• All Books Collection: ₹499 (Referral: ₹200/₹100/₹50)\n• Complete Package: ₹1499 (Referral: ₹1000/₹100/₹50)\n\nAfter payment, please fill the registration form at the website with transaction details.`;
 
             navigator.clipboard.writeText(message).then(() => {
                 showNotification('Payment message copied! Ready to share on WhatsApp.', 'success');
@@ -3056,18 +3085,20 @@
         // Share via WhatsApp
         function shareViaWhatsApp() {
             const code = modalReferralCodeElement.textContent;
-            const message = `🌟 Join MultiConnect - India's Leading Multi-Services Platform! 🌟\n\n` +
-                `I just joined MultiConnect and started earning! 🤝\n\n` +
-                `Use my referral code to get ₹100 OFF on registration:\n\n` +
+            const message = `🌟 Transform Your Skills & Earnings with MultiConnect! 🌟\n\n` +
+                `I'm learning valuable skills and earning through referrals! 🚀\n\n` +
+                `Use my referral code to join:\n\n` +
                 `🔑 Referral Code: ${code}\n\n` +
                 `👉 What you get:\n` +
-                `✅ Access to 7+ premium services\n` +
-                `✅ Earn ₹5,000+ monthly base salary\n` +
-                `✅ 3-level referral system (earn up to ₹100 per referral)\n` +
-                `✅ Unlimited earning potential\n\n` +
-                `One-time registration: ₹299 only!\n` +
+                `✅ Premium Courses: ₹499 each (Original ₹999)\n` +
+                `✅ Premium Books: ₹299 each (Original ₹499)\n` +
+                `✅ All Books Collection: ₹499 (Original ₹999)\n` +
+                `✅ Complete Package: ₹1499 (Original ₹2999)\n` +
+                `✅ 3-Level Referral System (Earn ₹100-₹1000 per referral)\n` +
+                `✅ Lifetime Access to Resources\n\n` +
+                `Start your learning journey today!\n` +
                 `Register now: ${window.location.href}\n\n` +
-                `Don't miss this opportunity! 🚀`;
+                `Don't miss this opportunity to grow! 📚💸`;
 
             window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
             closeReferModal();
@@ -3076,7 +3107,7 @@
         // Share via SMS
         function shareViaSMS() {
             const code = modalReferralCodeElement.textContent;
-            const message = `Join MultiConnect! Use my code ${code} for ₹100 OFF. Register at: ${window.location.href}`;
+            const message = `Join MultiConnect Learning Platform! Use my code ${code} to access premium courses & books. Courses: ₹499, Books: ₹299. Earn through referrals! Register: ${window.location.href}`;
 
             if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                 window.open(`sms:?body=${encodeURIComponent(message)}`);
@@ -3164,8 +3195,7 @@
                 password: passwordInput.value,
                 location: document.getElementById('location').value.trim(),
                 qualification: document.getElementById('qualification').value,
-                experience: document.getElementById('experience').value,
-                interest: document.getElementById('interest').value,
+                courseSelection: document.getElementById('courseSelection').value,
                 paymentDetails: document.getElementById('paymentDetails').value.trim(),
                 message: document.getElementById('message').value.trim(),
                 reference: document.getElementById('reference').value.trim(),
@@ -3179,7 +3209,7 @@
         }
 
         function createWhatsAppMessage(formData) {
-            return `*MultiConnect Registration - Complete Details*\n\n` +
+            return `*MultiConnect Learning Platform - Registration*\n\n` +
                 `*📋 PERSONAL DETAILS*\n` +
                 `• 👤 Name: ${formData.name}\n` +
                 `• 🎂 Age: ${formData.age} years\n` +
@@ -3187,15 +3217,14 @@
                 `• 📧 Email: ${formData.email || 'Not provided'}\n` +
                 `• 🔐 Password: ${formData.password}\n` +
                 `• 📍 Location: ${formData.location}\n` +
-                `• 🎓 Qualification: ${formData.qualification}\n` +
-                `• 💼 Experience: ${formData.experience} years\n\n` +
+                `• 🎓 Education: ${formData.qualification}\n` +
+                `• 📚 Selected Product: ${formData.courseSelection}\n\n` +
 
                 `*💰 PAYMENT INFORMATION*\n` +
-                `• 💸 Payment Details: ${formData.paymentDetails}\n` +
-                `• 🎯 Service Interest: ${formData.interest}\n\n` +
+                `• 💸 Payment Details: ${formData.paymentDetails}\n\n` +
 
-                `*📝 ADDITIONAL INFORMATION*\n` +
-                `• 💬 Message: ${formData.message}\n` +
+                `*🎯 LEARNING GOALS*\n` +
+                `• 💬 Goals: ${formData.message}\n` +
                 `• 🔗 Reference Code: ${formData.reference || 'None'}\n` +
                 `• 🆔 My Referral Code: ${formData.referralCode}\n\n` +
 
@@ -3207,7 +3236,7 @@
                 `• 🕒 Submitted: ${formData.timestamp}\n` +
                 `• 🌐 Via: MultiConnect Website\n\n` +
 
-                `*✅ PAYMENT MADE - PLEASE PROCESS MY REGISTRATION*`;
+                `*✅ PAYMENT COMPLETED - PLEASE PROVIDE LOGIN CREDENTIALS*`;
         }
 
         function resetFormButton() {
@@ -3218,8 +3247,8 @@
 
         // Earnings Calculator
         function initializeCalculator() {
-            const sliders = ['bookingsSlider', 'l1Slider', 'l2Slider', 'l3Slider'];
-            const valueElements = ['bookingsValue', 'l1Value', 'l2Value', 'l3Value'];
+            const sliders = ['l1Slider', 'l2Slider', 'l3Slider'];
+            const valueElements = ['l1Value', 'l2Value', 'l3Value'];
 
             sliders.forEach((sliderId, index) => {
                 const slider = document.getElementById(sliderId);
@@ -3231,34 +3260,35 @@
                 });
             });
 
+            const purchaseSelect = document.getElementById('purchaseSelect');
+            const purchaseTypeDisplay = document.getElementById('purchaseType');
+
+            purchaseSelect.addEventListener('change', () => {
+                const selectedOption = purchaseSelect.options[purchaseSelect.selectedIndex];
+                purchaseTypeDisplay.textContent = selectedOption.text.split(' - ')[0];
+                calculateEarnings();
+            });
+
             calculateEarnings();
         }
 
         function calculateEarnings() {
-            const bookings = parseInt(document.getElementById('bookingsSlider').value);
             const l1 = parseInt(document.getElementById('l1Slider').value);
             const l2 = parseInt(document.getElementById('l2Slider').value);
             const l3 = parseInt(document.getElementById('l3Slider').value);
+            const purchaseType = document.getElementById('purchaseSelect').value;
 
-            // Base salary
-            const baseSalary = 5000;
+            // Get pricing structure for selected product
+            const pricing = pricingStructure[purchaseType];
 
-            // Commission calculation
-            let commission = 0;
-            if (bookings <= 5) commission = bookings * 700;
-            else if (bookings <= 10) commission = bookings * 800;
-            else if (bookings <= 20) commission = bookings * 1000;
-            else commission = bookings * 1100;
-
-            // Referral earnings
-            const referralEarnings = (l1 * 100) + (l2 * 50) + (l3 * 50);
-
-            // Team bonus
-            const teamSize = l1 + l2 + l3;
-            const teamBonus = teamSize >= 100 ? 10000 : 0;
+            // Calculate earnings
+            const l1Earnings = l1 * pricing.l1;
+            const l2Earnings = l2 * pricing.l2;
+            const l3Earnings = l3 * pricing.l3;
 
             // Total earnings
-            const total = baseSalary + commission + referralEarnings + teamBonus;
+            const total = l1Earnings + l2Earnings + l3Earnings;
+            const totalMembers = l1 + l2 + l3;
 
             // Format with Indian numbering system
             const formatINR = (amount) => {
@@ -3267,10 +3297,10 @@
 
             // Update display
             document.getElementById('totalEarnings').textContent = formatINR(total);
-            document.getElementById('baseSalary').textContent = formatINR(baseSalary);
-            document.getElementById('commission').textContent = formatINR(commission);
-            document.getElementById('referralEarnings').textContent = formatINR(referralEarnings);
-            document.getElementById('teamBonus').textContent = teamBonus > 0 ? formatINR(teamBonus) : '₹0';
+            document.getElementById('l1Earnings').textContent = formatINR(l1Earnings);
+            document.getElementById('l2Earnings').textContent = formatINR(l2Earnings);
+            document.getElementById('l3Earnings').textContent = formatINR(l3Earnings);
+            document.getElementById('totalMembers').textContent = totalMembers;
         }
 
         // Notification System
@@ -3338,6 +3368,9 @@
                 document.getElementById('location').value = 'Mumbai, Maharashtra';
                 passwordInput.value = 'Demo@123';
                 confirmPasswordInput.value = 'Demo@123';
+                document.getElementById('courseSelection').value = 'course_html';
+                document.getElementById('paymentDetails').value = 'UPI Transaction ID: DEMO123, Amount: ₹499, Date: Demo, Time: Demo';
+                document.getElementById('message').value = 'I want to learn web development and build a career in tech.';
                 updateReferralCode();
                 showNotification('Demo mode activated! Fill the form to test.', 'info');
             }, 1000);
